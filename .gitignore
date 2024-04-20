@@ -71,5 +71,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Firebase folder
-/[Aa]ssets/[Ff]irebase/
+# Imported assets
+/Assets/Assets_DevilsWorkShop/
