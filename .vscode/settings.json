@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Karmel-Desitny.sln"
+    "dotnet.defaultSolution": "Karmel-Destiny.sln"
 }

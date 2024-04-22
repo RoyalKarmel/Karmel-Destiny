@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -15,15 +13,17 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called at a fixed interval and is independent of frame rate
+    void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
-        transform.Translate(movement);
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
+        // transform.Translate(movement);
+        rb.velocity = movement;
 
+        // Rotate character
         if (moveHorizontal < 0)
             spriteRenderer.flipX = false;
         if (moveHorizontal > 0)
