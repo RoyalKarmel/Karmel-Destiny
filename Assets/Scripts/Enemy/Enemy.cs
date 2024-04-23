@@ -1,9 +1,16 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[System.Serializable]
+public class Enemy
 {
-    [Header("Move")]
+    [Header("Stats")]
+    public int hp = 50;
+    public int maxHp = 50;
+    public int damage = 10;
+    // public int criticalDamage = damage * 2;
     public float moveSpeed = 3f;
+
+    [Header("Move variables")]
     public float moveDuration = 5f;
     public float randomMoveRange = 10f;
     public float changeDirectionInterval = 2f;
@@ -13,89 +20,26 @@ public class Enemy : MonoBehaviour
     public float attackRange = 1.5f;
     public float detectionRange = 5f;
 
-    [Header("Stats")]
-    public int damage = 10;
-
-    private Transform target;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    private Vector3 initialPosition;
-    private bool isPlayerDetected = false;
-    private float timeSinceLastDirectionChange = 0f;
-    private Vector2 moveDirection;
-    private float timeSinceLastMove = 0f;
-
-    // Start is called before the first frame update
-    void Start()
+    public void CalculateStats(int enemyLevel)
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        maxHp = 50 + enemyLevel * 2;
+        hp = maxHp;
 
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        initialPosition = transform.position;
-
-        // Random move direction
-        moveDirection = Random.insideUnitCircle.normalized;
+        damage = 10 + enemyLevel * 2;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Attack()
     {
-        if (isPlayerDetected)
-            Attack();
-        else
-            Move();
+        Debug.Log(damage);
     }
 
-    void Move()
+    public void TakeDamage(int damageTaken)
     {
-        timeSinceLastDirectionChange += Time.deltaTime;
-
-        if (timeSinceLastDirectionChange >= changeDirectionInterval)
-        {
-            // Random move direction
-            moveDirection = Random.insideUnitCircle.normalized;
-
-            timeSinceLastDirectionChange = 0f;
-            timeSinceLastMove = 0f;
-        }
-
-        rb.velocity = moveDirection * moveSpeed;
-
-        // Rotate enemy
-        if (moveDirection.x > 0)
-            spriteRenderer.flipX = true;
-        else if (moveDirection.x < 0)
-            spriteRenderer.flipX = false;
-
-        timeSinceLastMove += Time.deltaTime;
-
-        // Stop enemy
-        if (timeSinceLastMove >= moveDuration)
-            rb.velocity = Vector2.zero;
-
-        // Check if player is in attack range
-        if (Vector2.Distance(transform.position, target.position) <= detectionRange)
-            isPlayerDetected = true;
+        hp -= damageTaken;
     }
 
-    void Attack()
+    public bool isDead()
     {
-        // Move to player
-        moveDirection = (target.position - transform.position).normalized;
-        rb.velocity = moveDirection * moveSpeed;
-
-        // Rotate enemy
-        if (moveDirection.x > 0)
-            spriteRenderer.flipX = true;
-        if (moveDirection.x < 0)
-            spriteRenderer.flipX = false;
-
-        // Check if player run away
-        float distanceToPlayer = Vector2.Distance(initialPosition, target.position);
-        if (distanceToPlayer > returnRange)
-            isPlayerDetected = false;
+        return hp <= 0;
     }
 }
-

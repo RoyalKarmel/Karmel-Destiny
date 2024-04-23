@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    public Player player;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
 
@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * player.speed;
         // transform.Translate(movement);
         rb.velocity = movement;
 
