@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyContoller : MonoBehaviour
 {
     [Header("Enemy Stats")]
-    public int level = 1;
     public Enemy enemy;
 
     // Components
@@ -26,8 +25,6 @@ public class EnemyContoller : MonoBehaviour
         initialPosition = transform.position;
 
         moveDirection = Random.insideUnitCircle.normalized;
-
-        enemy.CalculateStats(level);
     }
 
     void Update()

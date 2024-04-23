@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4646408513325913978}
   - component: {fileID: 5834118683136678064}
   - component: {fileID: 4605568186673351901}
-  - component: {fileID: 1217281286563503389}
+  - component: {fileID: 5364443539356150402}
   - component: {fileID: 3220257427964488559}
   m_Layer: 0
   m_Name: Player Container
@@ -214,7 +214,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1217281286563503389
+--- !u!114 &5364443539356150402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f6002d72b66344b9e5a2de5cb635dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0
+  damage: 10
   speed: 5
+  healthBar: {fileID: 0}
 --- !u!114 &3220257427964488559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,4 +243,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5a6c03458a1294582dcc5c98316966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1217281286563503389}
+  player: {fileID: 5364443539356150402}

@@ -1,13 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Enemy
+public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    public int hp = 50;
+    public int level = 1;
     public int maxHp = 50;
+    private int hp;
     public int damage = 10;
-    // public int criticalDamage = damage * 2;
+    private int criticalDamage;
     public float moveSpeed = 3f;
 
     [Header("Move variables")]
@@ -20,12 +21,18 @@ public class Enemy
     public float attackRange = 1.5f;
     public float detectionRange = 5f;
 
-    public void CalculateStats(int enemyLevel)
+    [Header("UI")]
+    public HealthBar healthBar;
+
+    void Start()
     {
-        maxHp = 50 + enemyLevel * 2;
+        maxHp = 50 + level * 2;
         hp = maxHp;
 
-        damage = 10 + enemyLevel * 2;
+        healthBar.SetMaxHealth(maxHp);
+
+        damage = 10 + level * 2;
+        criticalDamage = damage * 2;
     }
 
     public void Attack()
@@ -36,6 +43,7 @@ public class Enemy
     public void TakeDamage(int damageTaken)
     {
         hp -= damageTaken;
+        healthBar.SetHealth(hp);
     }
 
     public bool isDead()

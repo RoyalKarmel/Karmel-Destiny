@@ -28,5 +28,11 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         if (moveHorizontal > 0)
             spriteRenderer.flipX = true;
+
+        // testing
+        if (Input.GetButtonDown("Jump"))
+        {
+            player.TakeDamage(20);
+        }
     }
 }
