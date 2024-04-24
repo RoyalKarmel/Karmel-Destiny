@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
+    public TMP_Text timerText;
     public TMP_Text levelText;
     public TMP_Text currentHealthText;
     public TMP_Text maxHealthText;
     public TMP_Text damageText;
     public TMP_Text speedText;
+
+    public void SetTimerText(string gameTime)
+    {
+        timerText.text = gameTime;
+    }
 
     public void SetLevelText(int level)
     {
