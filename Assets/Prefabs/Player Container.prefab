@@ -231,6 +231,7 @@ MonoBehaviour:
   damage: 10
   speed: 5
   healthBar: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!114 &3220257427964488559
 MonoBehaviour:
   m_ObjectHideFlags: 0

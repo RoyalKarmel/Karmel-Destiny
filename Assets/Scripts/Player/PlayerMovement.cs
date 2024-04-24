@@ -13,6 +13,19 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
+    void Update()
+    {
+        // Open inventory
+        if (Input.GetButtonDown("Inventory"))
+            player.ToggleInventory();
+
+        // testing
+        if (Input.GetButtonDown("Jump"))
+        {
+            player.TakeDamage(20);
+        }
+    }
+
     // FixedUpdate is called at a fixed interval and is independent of frame rate
     void FixedUpdate()
     {
@@ -28,11 +41,5 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         if (moveHorizontal > 0)
             spriteRenderer.flipX = true;
-
-        // testing
-        if (Input.GetButtonDown("Jump"))
-        {
-            player.TakeDamage(20);
-        }
     }
 }
