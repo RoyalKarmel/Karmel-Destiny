@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Level")]
     private int level = 1;
+    public int exp = 0;
+    public int expToLevelUp = 100;
 
     [Header("HP")]
     public int maxHealth = 100;
     public int health;
+    private int healthIncrease = 20;
 
     [Header("Damage")]
     public int damage = 10;
+    private int dmgIncrease = 5;
     private int criticalDamage;
 
     [Header("Speed")]
@@ -23,16 +28,48 @@ public class Player : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
 
-        statsManager.SetLevelText(level);
-        statsManager.SetMaxHealthText(maxHealth);
-        statsManager.SetDamageText(damage);
-        statsManager.SetSpeedText(speed);
-
-        criticalDamage = damage * 2;
+        SetUI();
+        CalculateCriticalDamage();
     }
 
+    void Update()
+    {
+        if (exp >= expToLevelUp)
+            LevelUp();
+    }
+
+    #region Level
+    public void SetExp(int amount)
+    {
+        exp += amount;
+        statsManager.SetExpText(exp);
+    }
+
+    void LevelUp()
+    {
+        level++;
+        exp -= expToLevelUp;
+        expToLevelUp += 50;
+
+        IncreaseStats();
+        SetUI();
+
+        Debug.Log("LEVEL UP!");
+    }
+
+    void IncreaseStats()
+    {
+        maxHealth += healthIncrease;
+        health = maxHealth;
+
+        damage += dmgIncrease;
+
+        CalculateCriticalDamage();
+    }
+    #endregion
+
+    #region HP
     // Heal player
     public void Heal(int amount)
     {
@@ -44,7 +81,9 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(health);
         statsManager.SetCurrentHealthText(health);
     }
+    #endregion
 
+    #region Damage
     // Take damage
     public void TakeDamage(int amount)
     {
@@ -56,6 +95,19 @@ public class Player : MonoBehaviour
             Die();
     }
 
+    void CalculateCriticalDamage()
+    {
+        criticalDamage = damage * 2;
+    }
+
+    // Yu ded!
+    void Die()
+    {
+        Debug.Log("YU DED.");
+    }
+    #endregion
+
+    #region Utils
     // Open / Close inventory
     public void ToggleInventory()
     {
@@ -65,9 +117,17 @@ public class Player : MonoBehaviour
             inventory.SetActive(true);
     }
 
-    // Yu ded!
-    void Die()
+    void SetUI()
     {
-        Debug.Log("YU DED.");
+        healthBar.SetMaxHealth(maxHealth);
+
+        statsManager.SetLevelText(level);
+        statsManager.SetExpText(exp);
+        statsManager.SetExpToLevelUpText(expToLevelUp);
+
+        statsManager.SetMaxHealthText(maxHealth);
+        statsManager.SetDamageText(damage);
+        statsManager.SetSpeedText(speed);
     }
+    #endregion
 }

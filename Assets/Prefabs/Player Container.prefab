@@ -226,11 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f6002d72b66344b9e5a2de5cb635dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp: 0
+  expToLevelUp: 100
   maxHealth: 100
   health: 0
   damage: 10
   speed: 5
   healthBar: {fileID: 0}
+  inventory: {fileID: 0}
   statsManager: {fileID: 0}
 --- !u!114 &3220257427964488559
 MonoBehaviour:
