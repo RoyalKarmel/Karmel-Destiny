@@ -13,6 +13,8 @@ public class StatsManager : MonoBehaviour
     [Header("Stats text")]
     public TMP_Text currentHealthText;
     public TMP_Text maxHealthText;
+    public TMP_Text currentManaText;
+    public TMP_Text maxManaText;
     public TMP_Text damageText;
     public TMP_Text speedText;
 
@@ -39,6 +41,7 @@ public class StatsManager : MonoBehaviour
     #endregion
 
     #region Stats Text
+    // HP
     public void SetCurrentHealthText(int currentHealth)
     {
         currentHealthText.text = "Current Health: <color=#FF7402>" + currentHealth + "</color>";
@@ -51,11 +54,26 @@ public class StatsManager : MonoBehaviour
         SetCurrentHealthText(maxHealth);
     }
 
+    // Mana
+    public void SetCurrentManaText(int currentMana)
+    {
+        currentManaText.text = "Current Mana: <color=#FF7402>" + currentMana + "</color>";
+    }
+
+    public void SetMaxManaText(int maxMana)
+    {
+        currentManaText.text = "Max Mana: <color=#FF7402>" + maxMana + "</color>";
+
+        SetCurrentManaText(maxMana);
+    }
+
+    // Damage
     public void SetDamageText(int damage)
     {
         damageText.text = "Damage: <color=#FF7402>" + damage + "</color>";
     }
 
+    // Speed
     public void SetSpeedText(float speed)
     {
         speedText.text = "Speed: <color=#FF7402>" + speed + "</color>";

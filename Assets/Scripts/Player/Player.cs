@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     public int health;
     private int healthIncrease = 20;
 
+    [Header("Mana")]
+    public int maxMana = 20;
+    public int mana;
+    private int manaIncrease = 5;
+
     [Header("Attack")]
     public int damage = 10;
     public float attackRange = 0.5f;
@@ -23,13 +28,14 @@ public class Player : MonoBehaviour
     public float speed = 5f;
 
     [Header("UI")]
-    public HealthBar healthBar;
+    public ResourceBars resourceBars;
     public GameObject inventory;
     public StatsManager statsManager;
 
     void Start()
     {
         health = maxHealth;
+        mana = maxMana;
 
         SetUI();
         CalculateCriticalDamage();
@@ -65,6 +71,9 @@ public class Player : MonoBehaviour
         maxHealth += healthIncrease;
         health = maxHealth;
 
+        maxMana += manaIncrease;
+        mana = maxMana;
+
         damage += dmgIncrease;
 
         CalculateCriticalDamage();
@@ -80,7 +89,7 @@ public class Player : MonoBehaviour
         if (health > maxHealth)
             health = maxHealth;
 
-        healthBar.SetHealth(health);
+        resourceBars.SetHealth(health);
         statsManager.SetCurrentHealthText(health);
     }
     #endregion
@@ -90,7 +99,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
-        healthBar.SetHealth(health);
+        resourceBars.SetHealth(health);
         statsManager.SetCurrentHealthText(health);
 
         if (health <= 0)
@@ -121,13 +130,15 @@ public class Player : MonoBehaviour
 
     void SetUI()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        resourceBars.SetMaxHealth(maxHealth);
+        resourceBars.SetMaxMana(maxMana);
 
         statsManager.SetLevelText(level);
         statsManager.SetExpText(exp);
         statsManager.SetExpToLevelUpText(expToLevelUp);
 
         statsManager.SetMaxHealthText(maxHealth);
+        statsManager.SetMaxManaText(maxMana);
         statsManager.SetDamageText(damage);
         statsManager.SetSpeedText(speed);
     }

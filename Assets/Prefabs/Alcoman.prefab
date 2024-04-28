@@ -373,17 +373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  maxHp: 50
+  maxHealth: 50
   damage: 10
+  criticalDamage: 0
+  criticalChance: 0.1
+  attackCooldown: 1
   moveSpeed: 3
-  moveDuration: 5
-  randomMoveRange: 10
-  changeDirectionInterval: 2
-  returnRange: 15
-  attackRange: 1.5
-  detectionRange: 5
-  healthBar: {fileID: 876897644693523239}
-  player: {fileID: 0}
+  resourceBars: {fileID: 876897644693523239}
 --- !u!114 &3653370050744857917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +393,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1501740918884077668}
+  moveDuration: 5
+  randomMoveRange: 10
+  changeDirectionInterval: 2
+  returnRange: 15
+  attackRange: 1.5
+  detectionRange: 5
 --- !u!1 &7975149076251454091
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,18 +500,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f87326235c723e42abe6fc3e179d1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 2874107525284467476}
-  gradient:
+  healthSlider: {fileID: 2874107525284467476}
+  healthGradient:
     serializedVersion: 2
-    key0: {r: 0.9622642, g: 0.077162705, b: 0.077162705, a: 1}
-    key1: {r: 0.9703704, g: 1, b: 0, a: 1}
-    key2: {r: 0.18523192, g: 1, b: 0, a: 0}
+    key0: {r: 0.9245283, g: 0.07413671, b: 0.07413671, a: 1}
+    key1: {r: 0.9539641, g: 1, b: 0.05098039, a: 1}
+    key2: {r: 0.31133905, g: 1, b: 0.051886797, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 19661
+    ctime0: 16384
     ctime1: 45875
     ctime2: 65535
     ctime3: 0
@@ -529,5 +531,8 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  fill: {fileID: 3896531825735618107}
+  healthFill: {fileID: 3896531825735618107}
   healthText: {fileID: 0}
+  manaSlider: {fileID: 0}
+  manaFill: {fileID: 0}
+  manaText: {fileID: 0}
