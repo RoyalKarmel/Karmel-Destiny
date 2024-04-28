@@ -263,12 +263,14 @@ MonoBehaviour:
   expToLevelUp: 100
   maxHealth: 100
   health: 0
+  maxMana: 20
+  mana: 0
   damage: 10
   attackRange: 0.5
   criticalDamage: 0
   criticalChance: 0.1
   speed: 5
-  healthBar: {fileID: 0}
+  resourceBars: {fileID: 0}
   inventory: {fileID: 0}
   statsManager: {fileID: 0}
 --- !u!114 &3220257427964488559

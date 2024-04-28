@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     }
 
     #region Level
-    public void SetExp(int amount)
+    public void GainExperience(int amount)
     {
         exp += amount;
         statsManager.SetExpText(exp);

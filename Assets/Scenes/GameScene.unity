@@ -21125,14 +21125,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4772586338188651203, guid: 331971ea6511ad240ae70af347380611, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5364443539356150402, guid: 331971ea6511ad240ae70af347380611, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5364443539356150402, guid: 331971ea6511ad240ae70af347380611, type: 3}
       propertyPath: inventory
       value: 
@@ -21148,10 +21140,6 @@ PrefabInstance:
     - target: {fileID: 6015320204964124999, guid: 331971ea6511ad240ae70af347380611, type: 3}
       propertyPath: m_Name
       value: Player Container
-      objectReference: {fileID: 0}
-    - target: {fileID: 6015320204964124999, guid: 331971ea6511ad240ae70af347380611, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

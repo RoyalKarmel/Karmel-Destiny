@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour
     [Header("Speed")]
     public float moveSpeed = 3f;
 
+    [Header("Experience")]
+    public int minExp = 10;
+    public int maxExp = 30;
+
     [Header("UI")]
     public ResourceBars resourceBars;
 
@@ -76,6 +80,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        int expGained = Random.Range(minExp, maxExp + 1);
+        player.GainExperience(expGained);
+
         Destroy(gameObject);
     }
 }
