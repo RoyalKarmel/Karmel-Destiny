@@ -19,11 +19,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Inventory"))
             player.ToggleInventory();
 
-        // testing
-        if (Input.GetButtonDown("Jump"))
-        {
-            player.TakeDamage(20);
-        }
+        // Rotate character
+        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (cursorPosition.x > transform.position.x)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
@@ -35,11 +36,5 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical) * player.speed;
         // transform.Translate(movement);
         rb.velocity = movement;
-
-        // Rotate character
-        if (moveHorizontal < 0)
-            spriteRenderer.flipX = false;
-        if (moveHorizontal > 0)
-            spriteRenderer.flipX = true;
     }
 }

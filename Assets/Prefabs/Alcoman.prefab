@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6804574902971839282}
   - component: {fileID: 7415876953759289325}
   - component: {fileID: 5600208277541773414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Enemy Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4039139143599873843}
   - component: {fileID: 8944303718786185298}
   - component: {fileID: 3896531825735618107}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: -3158338461258488934}
   - component: {fileID: 1501740918884077668}
   - component: {fileID: 3653370050744857917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alcoman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1688326df1e1e2941b023f059f7b676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  level: 1
   maxHp: 50
   damage: 10
   moveSpeed: 3
@@ -383,6 +383,7 @@ MonoBehaviour:
   attackRange: 1.5
   detectionRange: 5
   healthBar: {fileID: 876897644693523239}
+  player: {fileID: 0}
 --- !u!114 &3653370050744857917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7084ff8999c944840adf12bc5009040d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   enemy: {fileID: 1501740918884077668}
 --- !u!1 &7975149076251454091
 GameObject:
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 6519965094843305420}
   - component: {fileID: 2874107525284467476}
   - component: {fileID: 876897644693523239}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

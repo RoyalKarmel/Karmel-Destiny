@@ -5,6 +5,16 @@ public class EnemyContoller : MonoBehaviour
     [Header("Enemy Stats")]
     public Enemy enemy;
 
+    [Header("Move variables")]
+    public float moveDuration = 5f;
+    public float randomMoveRange = 10f;
+    public float changeDirectionInterval = 2f;
+
+    [Header("Ranges")]
+    public float returnRange = 15f;
+    public float attackRange = 1.5f;
+    public float detectionRange = 5f;
+
     // Components
     private Transform target;
     private Rigidbody2D rb;
@@ -38,10 +48,6 @@ public class EnemyContoller : MonoBehaviour
         }
         else
             Move();
-
-        // Destroy if ded
-        if (enemy.isDead())
-            Destroy(gameObject);
     }
 
     #region Move
@@ -49,7 +55,7 @@ public class EnemyContoller : MonoBehaviour
     {
         timeSinceLastDirectionChange += Time.deltaTime;
 
-        if (timeSinceLastDirectionChange >= enemy.changeDirectionInterval)
+        if (timeSinceLastDirectionChange >= changeDirectionInterval)
         {
             ChangeMoveDirection();
             timeSinceLastDirectionChange = 0f;
@@ -89,27 +95,27 @@ public class EnemyContoller : MonoBehaviour
 
     void CheckStopCondition()
     {
-        if (timeSinceLastMove >= enemy.moveDuration)
+        if (timeSinceLastMove >= moveDuration)
             rb.velocity = Vector2.zero;
     }
 
     void CheckPlayerDetection()
     {
-        if (Vector2.Distance(transform.position, target.position) <= enemy.detectionRange)
+        if (Vector2.Distance(transform.position, target.position) <= detectionRange)
             isPlayerDetected = true;
     }
 
     void CheckPlayerDistance()
     {
         float distanceToPlayer = Vector2.Distance(initialPosition, target.position);
-        if (distanceToPlayer > enemy.returnRange)
+        if (distanceToPlayer > returnRange)
             isPlayerDetected = false;
     }
 
     bool IsPlayerInRange()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
-        return distanceToPlayer <= enemy.attackRange;
+        return distanceToPlayer <= attackRange;
     }
     #endregion
 }

@@ -5,49 +5,51 @@ public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
     public int level = 1;
-    public int maxHp = 50;
-    private int hp;
+    public int maxHealth = 50;
+    private int currentHealth;
     public int damage = 10;
-    private int criticalDamage;
+    public int criticalDamage;
+    public float criticalChance = 0.1f;
     public float moveSpeed = 3f;
-
-    [Header("Move variables")]
-    public float moveDuration = 5f;
-    public float randomMoveRange = 10f;
-    public float changeDirectionInterval = 2f;
-
-    [Header("Ranges")]
-    public float returnRange = 15f;
-    public float attackRange = 1.5f;
-    public float detectionRange = 5f;
 
     [Header("UI")]
     public HealthBar healthBar;
 
+    private Player player;
+
     void Start()
     {
-        maxHp = 50 + level * 2;
-        hp = maxHp;
-
-        healthBar.SetMaxHealth(maxHp);
+        maxHealth = 50 + level * 2;
+        currentHealth = maxHealth;
 
         damage = 10 + level * 2;
         criticalDamage = damage * 2;
+
+        healthBar.SetMaxHealth(maxHealth);
+        player = FindObjectOfType<Player>();
     }
 
     public void Attack()
     {
-        Debug.Log(damage);
+        float randomValue = Random.value;
+        if (randomValue < criticalChance)
+            player.TakeDamage(criticalDamage);
+        else
+            player.TakeDamage(damage);
+        // Debug.Log(damage);
     }
 
     public void TakeDamage(int damageTaken)
     {
-        hp -= damageTaken;
-        healthBar.SetHealth(hp);
+        currentHealth -= damageTaken;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+            Die();
     }
 
-    public bool isDead()
+    void Die()
     {
-        return hp <= 0;
+        Destroy(gameObject);
     }
 }

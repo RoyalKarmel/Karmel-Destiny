@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     public int health;
     private int healthIncrease = 20;
 
-    [Header("Damage")]
+    [Header("Attack")]
     public int damage = 10;
+    public float attackRange = 0.5f;
+    public int criticalDamage;
+    public float criticalChance = 0.1f;
     private int dmgIncrease = 5;
-    private int criticalDamage;
 
     [Header("Speed")]
     public float speed = 5f;
