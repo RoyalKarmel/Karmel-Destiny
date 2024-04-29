@@ -4,56 +4,29 @@ using UnityEngine.UI;
 
 public class ResourceBars : MonoBehaviour
 {
-    [Header("Health")]
-    public Slider healthSlider;
-    public Gradient healthGradient;
-    public Image healthFill;
-    public TMP_Text healthText;
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+    public TMP_Text resourceText;
 
-    [Header("Mana")]
-    public Slider manaSlider;
-    public Image manaFill;
-    public TMP_Text manaText;
-
-    #region Health
-    public void SetMaxHealth(int health)
+    public void SetMaxValue(int maxAmount)
     {
-        healthSlider.maxValue = health;
-        healthSlider.value = health;
+        slider.maxValue = maxAmount;
+        slider.value = maxAmount;
 
-        healthFill.color = healthGradient.Evaluate(1f);
+        fill.color = gradient.Evaluate(1f);
 
-        if (healthText != null)
-            healthText.text = "hp: " + health;
+        if (resourceText != null)
+            resourceText.text = maxAmount.ToString();
     }
 
-    public void SetHealth(int health)
+    public void SetValue(int amount)
     {
-        healthSlider.value = health;
+        slider.value = amount;
 
-        healthFill.color = healthGradient.Evaluate(healthSlider.normalizedValue);
+        fill.color = gradient.Evaluate(slider.normalizedValue);
 
-        if (healthText != null)
-            healthText.text = "hp: " + health;
+        if (resourceText != null)
+            resourceText.text = amount.ToString();
     }
-    #endregion
-
-    #region Mana
-    public void SetMaxMana(int mana)
-    {
-        manaSlider.maxValue = mana;
-        manaSlider.value = mana;
-
-        if (manaText != null)
-            manaText.text = "mana: " + mana;
-    }
-
-    public void SetMana(int mana)
-    {
-        manaSlider.value = mana;
-
-        if (manaText != null)
-            manaText.text = "mana: " + mana;
-    }
-    #endregion
 }

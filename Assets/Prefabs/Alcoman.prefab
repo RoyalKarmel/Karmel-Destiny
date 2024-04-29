@@ -379,6 +379,8 @@ MonoBehaviour:
   criticalChance: 0.1
   attackCooldown: 1
   moveSpeed: 3
+  minExp: 10
+  maxExp: 30
   resourceBars: {fileID: 876897644693523239}
 --- !u!114 &3653370050744857917
 MonoBehaviour:
@@ -500,12 +502,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f87326235c723e42abe6fc3e179d1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 2874107525284467476}
-  healthGradient:
+  slider: {fileID: 2874107525284467476}
+  gradient:
     serializedVersion: 2
-    key0: {r: 0.9245283, g: 0.07413671, b: 0.07413671, a: 1}
-    key1: {r: 0.9539641, g: 1, b: 0.05098039, a: 1}
-    key2: {r: 0.31133905, g: 1, b: 0.051886797, a: 0}
+    key0: {r: 0.9716981, g: 0.03208439, b: 0.03208439, a: 1}
+    key1: {r: 0.98039216, g: 0.9331797, b: 0, a: 1}
+    key2: {r: 0.1814971, g: 0.9811321, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -531,8 +533,5 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  healthFill: {fileID: 3896531825735618107}
-  healthText: {fileID: 0}
-  manaSlider: {fileID: 0}
-  manaFill: {fileID: 0}
-  manaText: {fileID: 0}
+  fill: {fileID: 3896531825735618107}
+  resourceText: {fileID: 0}

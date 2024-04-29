@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     public float speed = 5f;
 
     [Header("UI")]
-    public ResourceBars resourceBars;
+    public ResourceBars healthBar;
+    public ResourceBars manaBar;
     public GameObject inventory;
     public StatsManager statsManager;
 
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
         if (health > maxHealth)
             health = maxHealth;
 
-        resourceBars.SetHealth(health);
+        healthBar.SetValue(health);
         statsManager.SetCurrentHealthText(health);
     }
     #endregion
@@ -99,7 +100,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
-        resourceBars.SetHealth(health);
+        healthBar.SetValue(health);
         statsManager.SetCurrentHealthText(health);
 
         if (health <= 0)
@@ -130,8 +131,8 @@ public class Player : MonoBehaviour
 
     void SetUI()
     {
-        resourceBars.SetMaxHealth(maxHealth);
-        resourceBars.SetMaxMana(maxMana);
+        healthBar.SetMaxValue(maxHealth);
+        manaBar.SetMaxValue(maxMana);
 
         statsManager.SetLevelText(level);
         statsManager.SetExpText(exp);

@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         damage = 10 + level * 2;
         criticalDamage = damage * 2;
 
-        resourceBars.SetMaxHealth(maxHealth);
+        resourceBars.SetMaxValue(maxHealth);
         player = FindObjectOfType<Player>();
     }
 
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         currentHealth -= damageTaken;
-        resourceBars.SetHealth(currentHealth);
+        resourceBars.SetValue(currentHealth);
 
         if (currentHealth <= 0)
             Die();
