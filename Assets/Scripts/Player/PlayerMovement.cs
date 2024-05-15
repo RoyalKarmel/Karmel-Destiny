@@ -15,10 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Open inventory
-        if (Input.GetButtonDown("Inventory"))
-            player.ToggleInventory();
-
         // Rotate character
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (cursorPosition.x > transform.position.x)

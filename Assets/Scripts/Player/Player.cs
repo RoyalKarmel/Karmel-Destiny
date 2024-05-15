@@ -12,11 +12,6 @@ public class Player : MonoBehaviour
     public int health;
     private int healthIncrease = 20;
 
-    [Header("Mana")]
-    public int maxMana = 20;
-    public int mana;
-    private int manaIncrease = 5;
-
     [Header("Attack")]
     public int damage = 10;
     public float attackRange = 0.5f;
@@ -29,14 +24,11 @@ public class Player : MonoBehaviour
 
     [Header("UI")]
     public ResourceBars healthBar;
-    public ResourceBars manaBar;
-    public GameObject inventory;
     public StatsManager statsManager;
 
     void Start()
     {
         health = maxHealth;
-        mana = maxMana;
 
         SetUI();
         CalculateCriticalDamage();
@@ -71,9 +63,6 @@ public class Player : MonoBehaviour
     {
         maxHealth += healthIncrease;
         health = maxHealth;
-
-        maxMana += manaIncrease;
-        mana = maxMana;
 
         damage += dmgIncrease;
 
@@ -120,26 +109,15 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Utils
-    // Open / Close inventory
-    public void ToggleInventory()
-    {
-        if (inventory.activeSelf)
-            inventory.SetActive(false);
-        else
-            inventory.SetActive(true);
-    }
-
     void SetUI()
     {
         healthBar.SetMaxValue(maxHealth);
-        manaBar.SetMaxValue(maxMana);
 
         statsManager.SetLevelText(level);
         statsManager.SetExpText(exp);
         statsManager.SetExpToLevelUpText(expToLevelUp);
 
         statsManager.SetMaxHealthText(maxHealth);
-        statsManager.SetMaxManaText(maxMana);
         statsManager.SetDamageText(damage);
         statsManager.SetSpeedText(speed);
     }
