@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Player player;
+
+    [SerializeField]
+    private CharacterStats characterStats;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
 
@@ -29,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * player.speed;
-        // transform.Translate(movement);
+        Vector2 movement =
+            new Vector2(moveHorizontal, moveVertical) * characterStats.speed.GetValue();
         rb.velocity = movement;
     }
 }

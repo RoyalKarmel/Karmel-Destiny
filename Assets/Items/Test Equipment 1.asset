@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49cdd5598403d9748a68e29bea0aa069, type: 3}
-  m_Name: Test Equipment
+  m_Name: Test Equipment 1
   m_EditorClassIdentifier: 
   name: Rudy Chuj
   icon: {fileID: 322099676, guid: e3bf060aa6d5589409136659ec642173, type: 3}
   isDefaultItem: 0
-  equipSlot: 0
-  armorModifier: 3
-  damageModifier: 0
+  equipSlot: 1
+  armorModifier: 0
+  damageModifier: 5
