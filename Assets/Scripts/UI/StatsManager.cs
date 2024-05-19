@@ -13,10 +13,11 @@ public class StatsManager : MonoBehaviour
     [Header("Stats text")]
     public TMP_Text currentHealthText;
     public TMP_Text maxHealthText;
-    public TMP_Text currentManaText;
-    public TMP_Text maxManaText;
     public TMP_Text damageText;
+    public TMP_Text armorText;
     public TMP_Text speedText;
+
+    private const string colorCode = "#FF7402";
 
     public void SetTimerText(string gameTime)
     {
@@ -26,17 +27,17 @@ public class StatsManager : MonoBehaviour
     #region Level Text
     public void SetLevelText(int level)
     {
-        levelText.text = "Level: <color=#FF7402>" + level + "</color>";
+        SetFormattedText(levelText, "Level: ", level);
     }
 
     public void SetExpText(int exp)
     {
-        expText.text = exp.ToString();
+        SetText(expText, exp.ToString());
     }
 
     public void SetExpToLevelUpText(int expToLevelUp)
     {
-        expToLevelUpText.text = expToLevelUp.ToString();
+        SetText(expToLevelUpText, expToLevelUp.ToString());
     }
     #endregion
 
@@ -44,39 +45,45 @@ public class StatsManager : MonoBehaviour
     // HP
     public void SetCurrentHealthText(int currentHealth)
     {
-        currentHealthText.text = "Current Health: <color=#FF7402>" + currentHealth + "</color>";
+        SetFormattedText(currentHealthText, "Current Health: ", currentHealth);
     }
 
     public void SetMaxHealthText(int maxHealth)
     {
-        maxHealthText.text = "Max Health: <color=#FF7402>" + maxHealth + "</color>";
-
-        SetCurrentHealthText(maxHealth);
-    }
-
-    // Mana
-    public void SetCurrentManaText(int currentMana)
-    {
-        currentManaText.text = "Current Mana: <color=#FF7402>" + currentMana + "</color>";
-    }
-
-    public void SetMaxManaText(int maxMana)
-    {
-        currentManaText.text = "Max Mana: <color=#FF7402>" + maxMana + "</color>";
-
-        SetCurrentManaText(maxMana);
+        SetFormattedText(maxHealthText, "Max Health: ", maxHealth);
+        SetCurrentHealthText(maxHealth); // Update current health as well
     }
 
     // Damage
     public void SetDamageText(int damage)
     {
-        damageText.text = "Damage: <color=#FF7402>" + damage + "</color>";
+        SetFormattedText(damageText, "Damage: ", damage);
+    }
+
+    public void SetArmorText(int armor)
+    {
+        SetFormattedText(armorText, "Armor: ", armor);
     }
 
     // Speed
     public void SetSpeedText(float speed)
     {
-        speedText.text = "Speed: <color=#FF7402>" + speed + "</color>";
+        SetFormattedText(speedText, "Speed: ", speed);
     }
     #endregion
+
+    private void SetText(TMP_Text textComponent, string text)
+    {
+        textComponent.text = text;
+    }
+
+    private void SetFormattedText(TMP_Text textComponent, string label, int value)
+    {
+        textComponent.text = $"{label}<color={colorCode}>{value}</color>";
+    }
+
+    private void SetFormattedText(TMP_Text textComponent, string label, float value)
+    {
+        textComponent.text = $"{label}<color={colorCode}>{value}</color>";
+    }
 }

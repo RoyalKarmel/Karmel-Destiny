@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField]
     private CharacterStats characterStats;
     private SpriteRenderer spriteRenderer;

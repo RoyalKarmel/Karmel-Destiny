@@ -18,3 +18,4 @@ MonoBehaviour:
   equipSlot: 0
   armorModifier: 3
   damageModifier: 0
+  speedModifier: 5

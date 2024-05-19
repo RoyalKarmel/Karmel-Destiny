@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    // [Header("Level")]
+    public int level { get; set; }
+
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
+    public ResourceBars healthBar;
 
     [Header("Combat")]
     public Stat armor;
@@ -18,12 +22,8 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         criticalDamage = damage.GetValue() * 2;
-    }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            TakeDamage(20);
+        healthBar.SetMaxValue(maxHealth);
     }
 
     public virtual void Heal(int amount)
@@ -32,6 +32,8 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+
+        healthBar.SetValue(currentHealth);
     }
 
     public virtual void TakeDamage(int damage)
@@ -40,6 +42,8 @@ public class CharacterStats : MonoBehaviour
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
+        healthBar.SetValue(currentHealth);
+
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
         if (currentHealth <= 0)

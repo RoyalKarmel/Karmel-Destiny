@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField]
+    private CharacterStats characterStats;
+
     // public Animator animator;
 
+    [Header("Attack")]
+    public float attackRange = 0.5f;
+    public float criticalChance = 0.1f;
+
     public Transform attackPoint;
-    public Player player;
     public LayerMask enemyLayers;
 
     public float maxDistanceFromPlayer = 1f;
@@ -38,16 +44,20 @@ public class PlayerCombat : MonoBehaviour
         // animator.SetTrigger("attack");
 
         // Detect enemies in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, player.attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
+            attackPoint.position,
+            attackRange,
+            enemyLayers
+        );
 
         // Damage enemies
         foreach (Collider2D enemy in hitEnemies)
         {
             float randomValue = Random.value;
-            if (randomValue < player.criticalChance)
-                enemy.GetComponent<Enemy>().TakeDamage(player.criticalDamage);
+            if (randomValue < criticalChance)
+                enemy.GetComponent<EnemyStats>().TakeDamage(characterStats.criticalDamage);
             else
-                enemy.GetComponent<Enemy>().TakeDamage(player.damage);
+                enemy.GetComponent<EnemyStats>().TakeDamage(characterStats.damage.GetValue());
         }
     }
 
@@ -56,6 +66,6 @@ public class PlayerCombat : MonoBehaviour
         if (attackPoint == null)
             return;
 
-        Gizmos.DrawWireSphere(attackPoint.position, player.attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
