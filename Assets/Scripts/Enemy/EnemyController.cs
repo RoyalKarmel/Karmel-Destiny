@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
 
         target = PlayerManager.instance.player.transform;
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         initialPosition = transform.position;
         moveDirection = Random.insideUnitCircle.normalized;
