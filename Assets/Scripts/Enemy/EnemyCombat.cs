@@ -13,7 +13,8 @@ public class EnemyCombat : MonoBehaviour
     void Start()
     {
         enemyStats = GetComponent<EnemyStats>();
-        player = FindObjectOfType<PlayerStats>();
+
+        player = PlayerManager.instance.playerStats;
     }
 
     void Update()

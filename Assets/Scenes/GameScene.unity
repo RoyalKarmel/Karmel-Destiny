@@ -214,7 +214,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5717167
 Transform:
@@ -12481,7 +12481,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &334490693
 Transform:
@@ -14676,6 +14676,22 @@ RectTransform:
   m_AnchoredPosition: {x: -107.5, y: 0}
   m_SizeDelta: {x: 215, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &663497292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8063150172623974129, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
+  m_PrefabInstance: {fileID: 2802906559204372453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &663497295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3056969496331341203, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
+  m_PrefabInstance: {fileID: 2802906559204372453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663497292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6c94e13f90ab24987e95f079aae7d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &707328082
 GameObject:
   m_ObjectHideFlags: 0
@@ -16599,6 +16615,7 @@ GameObject:
   - component: {fileID: 1353908694}
   - component: {fileID: 1353908695}
   - component: {fileID: 1353908696}
+  - component: {fileID: 1353908697}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -16675,6 +16692,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentParent: {fileID: 1160564385}
+--- !u!114 &1353908697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353908691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f866fdf441210246b9d0d9343589a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 663497292}
+  playerStats: {fileID: 663497295}
 --- !u!1001 &1383560914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17168,7 +17199,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1487653317
 Transform:

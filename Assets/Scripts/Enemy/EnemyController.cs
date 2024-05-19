@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         combat = GetComponent<EnemyCombat>();
         stats = GetComponent<EnemyStats>();
 
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = PlayerManager.instance.player.transform;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -119,6 +119,12 @@ public class EnemyController : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
         return distanceToPlayer <= attackRange;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
     #endregion
 }

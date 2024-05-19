@@ -11,7 +11,7 @@ public class EnemyStats : CharacterStats
 
     void Start()
     {
-        player = FindObjectOfType<PlayerStats>();
+        player = PlayerManager.instance.playerStats;
     }
 
     public override void Die()

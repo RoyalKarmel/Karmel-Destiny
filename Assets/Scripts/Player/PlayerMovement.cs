@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
     private CharacterStats characterStats;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
@@ -10,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characterStats = GetComponent<CharacterStats>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }

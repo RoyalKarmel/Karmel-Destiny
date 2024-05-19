@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = PlayerManager.instance.player.transform;
     }
 
     void Update()
