@@ -1,11 +1,19 @@
 using UnityEngine;
 
-public class EnemyContoller : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    [Header("Enemy Stats")]
-    [SerializeField]
-    private EnemyStats enemy;
-    private EnemyCombat enemyCombat;
+    [Header("Ranges")]
+    public float returnRange = 15f;
+    public float attackRange = 1.5f;
+    public float detectionRange = 5f;
+
+    [Header("Move variables")]
+    public float moveDuration = 5f;
+    public float changeDirectionInterval = 2f;
+
+    // Enemy classes
+    private EnemyStats stats;
+    private EnemyCombat combat;
 
     // Components
     private Transform target;
@@ -21,13 +29,15 @@ public class EnemyContoller : MonoBehaviour
 
     void Start()
     {
+        combat = GetComponent<EnemyCombat>();
+        stats = GetComponent<EnemyStats>();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        initialPosition = transform.position;
 
+        initialPosition = transform.position;
         moveDirection = Random.insideUnitCircle.normalized;
-        enemyCombat = GetComponent<EnemyCombat>();
     }
 
     void Update()
@@ -35,7 +45,7 @@ public class EnemyContoller : MonoBehaviour
         if (isPlayerDetected)
         {
             if (IsPlayerInRange())
-                enemyCombat.Attack();
+                combat.Attack();
             else
                 MoveTowardsPlayer();
         }
@@ -48,14 +58,14 @@ public class EnemyContoller : MonoBehaviour
     {
         timeSinceLastDirectionChange += Time.deltaTime;
 
-        if (timeSinceLastDirectionChange >= enemy.changeDirectionInterval)
+        if (timeSinceLastDirectionChange >= changeDirectionInterval)
         {
             ChangeMoveDirection();
             timeSinceLastDirectionChange = 0f;
             timeSinceLastMove = 0f;
         }
 
-        rb.velocity = moveDirection * enemy.speed.GetValue();
+        rb.velocity = moveDirection * stats.speed.GetValue();
         timeSinceLastMove += Time.deltaTime;
 
         RotateEnemy();
@@ -73,7 +83,7 @@ public class EnemyContoller : MonoBehaviour
     void MoveTowardsPlayer()
     {
         moveDirection = (target.position - transform.position).normalized;
-        rb.velocity = moveDirection * enemy.speed.GetValue();
+        rb.velocity = moveDirection * stats.speed.GetValue();
 
         RotateEnemy();
         CheckPlayerDistance();
@@ -88,27 +98,27 @@ public class EnemyContoller : MonoBehaviour
 
     void CheckStopCondition()
     {
-        if (timeSinceLastMove >= enemy.moveDuration)
+        if (timeSinceLastMove >= moveDuration)
             rb.velocity = Vector2.zero;
     }
 
     void CheckPlayerDetection()
     {
-        if (Vector2.Distance(transform.position, target.position) <= enemy.detectionRange)
+        if (Vector2.Distance(transform.position, target.position) <= detectionRange)
             isPlayerDetected = true;
     }
 
     void CheckPlayerDistance()
     {
         float distanceToPlayer = Vector2.Distance(initialPosition, target.position);
-        if (distanceToPlayer > enemy.returnRange)
+        if (distanceToPlayer > returnRange)
             isPlayerDetected = false;
     }
 
     bool IsPlayerInRange()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
-        return distanceToPlayer <= enemy.attackRange;
+        return distanceToPlayer <= attackRange;
     }
     #endregion
 }
