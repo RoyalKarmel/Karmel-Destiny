@@ -295,7 +295,8 @@ GameObject:
   - component: {fileID: 2180800853150274270}
   - component: {fileID: -3158338461258488934}
   - component: {fileID: 1501740918884077668}
-  - component: {fileID: 3653370050744857917}
+  - component: {fileID: 4663035498153295343}
+  - component: {fileID: 4897797101729621318}
   - component: {fileID: 738220662094822999}
   m_Layer: 6
   m_Name: Alcoman
@@ -379,7 +380,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -415,7 +416,7 @@ MonoBehaviour:
     baseValue: 3
   minExp: 10
   maxExp: 30
---- !u!114 &3653370050744857917
+--- !u!114 &4663035498153295343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,14 +425,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 5568825199632468015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7084ff8999c944840adf12bc5009040d, type: 3}
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnRange: 15
-  attackRange: 1.5
-  detectionRange: 5
-  moveDuration: 5
-  changeDirectionInterval: 2
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &4897797101729621318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568825199632468015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4726fe784f777c41b67d358958d4c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextWaypointDistance: 3
+  enemyGFX: {fileID: 4404006087956307534}
+  patrol:
+    patrolRadius: 10
+    numberOfPatrolPoints: 5
+  detection:
+    detectionRange: 7
 --- !u!114 &738220662094822999
 MonoBehaviour:
   m_ObjectHideFlags: 0

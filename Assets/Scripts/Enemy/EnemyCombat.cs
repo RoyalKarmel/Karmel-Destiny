@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    public float attackRange = 1.5f;
     public float criticalChance = 0.1f;
     public float attackCooldown = 1f;
-    private float timeSinceLastAttack = 0;
-    private bool isAttacking = false;
+    float timeSinceLastAttack = 0;
+    bool isAttacking = false;
 
-    private PlayerStats player;
-    private EnemyStats enemyStats;
+    Transform player;
+    PlayerStats playerStats;
+    EnemyStats enemyStats;
 
     void Start()
     {
         enemyStats = GetComponent<EnemyStats>();
 
-        player = PlayerManager.instance.playerStats;
+        player = PlayerManager.instance.player.transform;
+        playerStats = PlayerManager.instance.playerStats;
     }
 
     void Update()
@@ -28,6 +31,11 @@ public class EnemyCombat : MonoBehaviour
                 timeSinceLastAttack = 0;
             }
         }
+        else
+        {
+            if (Vector3.Distance(transform.position, player.position) <= attackRange)
+                Attack();
+        }
     }
 
     public void Attack()
@@ -36,11 +44,17 @@ public class EnemyCombat : MonoBehaviour
         {
             float randomValue = Random.value;
             if (randomValue < criticalChance)
-                player.TakeDamage(enemyStats.criticalDamage);
+                playerStats.TakeDamage(enemyStats.criticalDamage);
             else
-                player.TakeDamage(enemyStats.damage.GetValue());
+                playerStats.TakeDamage(enemyStats.damage.GetValue());
 
             isAttacking = true;
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
