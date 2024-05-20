@@ -72,8 +72,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Imported assets
-/Assets/Assets_DevilsWorkShop/
-/Assets/Assets_DevilsWorkShop.meta
-
 /Assets/AstarPathfindingProject/
 /Assets/AstarPathfindingProject.meta
