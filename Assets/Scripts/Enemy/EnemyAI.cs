@@ -21,7 +21,6 @@ public class EnemyAI : MonoBehaviour
     // Components
     Transform target;
     EnemyStats stats;
-    EnemyCombat combat;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -31,7 +30,6 @@ public class EnemyAI : MonoBehaviour
     {
         target = PlayerManager.instance.player.transform;
         stats = GetComponent<EnemyStats>();
-        combat = GetComponent<EnemyCombat>();
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
