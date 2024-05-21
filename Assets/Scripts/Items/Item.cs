@@ -5,7 +5,8 @@ public class Item : ScriptableObject
 {
     public new string name = "New Item";
     public Sprite icon = null;
-    public bool isDefaultItem = false;
+    public bool isSpecialItem = false;
+    public bool isCurrency = false;
     public bool isConsumable = false;
     public int quantity = 1;
 

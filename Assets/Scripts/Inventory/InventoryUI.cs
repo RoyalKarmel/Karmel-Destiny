@@ -16,6 +16,7 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        inventory.space = slots.Length;
     }
 
     // Update is called once per frame
