@@ -3,11 +3,13 @@ using UnityEngine;
 public class ItemPickup : Interactable
 {
     public Item item;
+    public int quantity = 1;
 
     public override void Interact()
     {
         base.Interact();
 
+        item.quantity = quantity;
         PickUp();
     }
 

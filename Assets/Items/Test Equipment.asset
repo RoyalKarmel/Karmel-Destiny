@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Test Equipment
   m_EditorClassIdentifier: 
   name: Rudy Chuj
-  icon: {fileID: 322099676, guid: e3bf060aa6d5589409136659ec642173, type: 3}
+  icon: {fileID: -1541905362, guid: 3a0e4c68c0f51dd4a92782d471e52d45, type: 3}
   isDefaultItem: 0
+  isConsumable: 0
+  quantity: 1
   equipSlot: 0
   armorModifier: 3
   damageModifier: 0

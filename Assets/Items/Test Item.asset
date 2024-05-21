@@ -15,3 +15,5 @@ MonoBehaviour:
   name: Vodka
   icon: {fileID: -1541905362, guid: 3a0e4c68c0f51dd4a92782d471e52d45, type: 3}
   isDefaultItem: 0
+  isConsumable: 1
+  quantity: 1

@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7171471466918714661}
   removeButton: {fileID: 8620392815072346932}
+  quantityText: {fileID: 18110581699940274}
 --- !u!1 &6554022599536879517
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &625970804778129994
 RectTransform:
   m_ObjectHideFlags: 0

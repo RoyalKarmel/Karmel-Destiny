@@ -22,4 +22,10 @@ public class EquipmentSlotUI : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
     }
+
+    // Called when the remove button is pressed
+    public void OnRemoveButtonPressed()
+    {
+        EquipmentManager.instance.Unequip((int)equipment.equipSlot);
+    }
 }
