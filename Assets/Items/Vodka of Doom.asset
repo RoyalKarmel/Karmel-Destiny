@@ -10,11 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49cdd5598403d9748a68e29bea0aa069, type: 3}
-  m_Name: Test Equipment 1
+  m_Name: Vodka of Doom
   m_EditorClassIdentifier: 
-  name: Rudy Chuj
-  icon: {fileID: 322099676, guid: e3bf060aa6d5589409136659ec642173, type: 3}
-  isDefaultItem: 0
+  name: Vodka of Doom
+  icon: {fileID: -1371095162, guid: b5b488651f5d5944fa4e2a76e5c5cb59, type: 3}
+  isSpecialItem: 0
+  isCurrency: 0
+  isConsumable: 0
+  quantity: 1
+  product:
+    item: {fileID: 0}
+    equipment: {fileID: 11400000}
+    price: 50
   equipSlot: 1
   armorModifier: 0
   damageModifier: 5
+  speedModifier: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5274001887366263333
+--- !u!1 &1323303048762655243
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3219113740995585289}
-  - component: {fileID: 1029300149099815294}
-  - component: {fileID: 8253492174113754770}
+  - component: {fileID: 6871485061550364169}
+  - component: {fileID: 4985947713410619248}
+  - component: {fileID: 7690099233047676738}
   m_Layer: 0
-  m_Name: Currency
-  m_TagString: Currency
+  m_Name: Vodka of Doom
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3219113740995585289
+--- !u!4 &6871485061550364169
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274001887366263333}
+  m_GameObject: {fileID: 1323303048762655243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16, y: 0.16, z: 1}
+  m_LocalPosition: {x: 3.23, y: -3.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1029300149099815294
+--- !u!212 &4985947713410619248
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274001887366263333}
+  m_GameObject: {fileID: 1323303048762655243}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,29 +74,29 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 36f9133c7128e7a438b5c7b964645d53, type: 3}
+  m_Sprite: {fileID: -1371095162, guid: b5b488651f5d5944fa4e2a76e5c5cb59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.79, y: 3.1828125}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8253492174113754770
+--- !u!114 &7690099233047676738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274001887366263333}
+  m_GameObject: {fileID: 1323303048762655243}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75968c2776b2a64469d259fb76027b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  item: {fileID: 11400000, guid: 414a1966b65b4b04c8d5343419767e8f, type: 2}
-  quantity: 10
+  item: {fileID: 11400000, guid: 80bec446e53f738459244ef3232e5e42, type: 2}
+  quantity: 1

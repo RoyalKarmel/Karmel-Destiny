@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rudy Chuj
   icon: {fileID: -1541905362, guid: 3a0e4c68c0f51dd4a92782d471e52d45, type: 3}
-  isDefaultItem: 0
+  isSpecialItem: 0
+  isCurrency: 0
   isConsumable: 0
   quantity: 1
+  product:
+    item: {fileID: 0}
+    equipment: {fileID: 11400000}
+    price: 50
   equipSlot: 0
   armorModifier: 3
   damageModifier: 0

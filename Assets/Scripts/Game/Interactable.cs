@@ -4,7 +4,6 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 2f;
 
-    bool hasInteracted = false;
     Transform player;
 
     void Start()
@@ -18,14 +17,9 @@ public class Interactable : MonoBehaviour
 
         if (distance <= radius)
         {
-            if (!hasInteracted && Input.GetButtonDown("Interact"))
-            {
+            if (Input.GetButtonDown("Interact"))
                 Interact();
-                hasInteracted = true;
-            }
         }
-        else
-            hasInteracted = false;
     }
 
     public virtual void Interact()

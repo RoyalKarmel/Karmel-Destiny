@@ -20,25 +20,25 @@ public class Currency : MonoBehaviour
     #endregion
 
     public TMP_Text currencyText;
-    public int amount { get; private set; }
+    public int money { get; private set; }
 
     public void AddCurrency(int value)
     {
-        amount += value;
+        money += value;
         UpdateUI();
     }
 
-    public void RemoveCurrency(int value)
+    public void DecreaseCurrency(int value)
     {
-        amount -= value;
-        if (amount < 0)
-            amount = 0;
+        money -= value;
+        if (money < 0)
+            money = 0;
 
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        currencyText.text = amount.ToString();
+        currencyText.text = money.ToString();
     }
 }

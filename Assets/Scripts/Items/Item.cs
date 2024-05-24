@@ -3,12 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
+    [Header("Item")]
     public new string name = "New Item";
     public Sprite icon = null;
     public bool isSpecialItem = false;
     public bool isCurrency = false;
     public bool isConsumable = false;
     public int quantity = 1;
+
+    [Header("Product")]
+    public Product product;
 
     public virtual void Use()
     {

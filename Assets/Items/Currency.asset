@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Currency
   m_EditorClassIdentifier: 
   name: Currency
-  icon: {fileID: 21300000, guid: 36f9133c7128e7a438b5c7b964645d53, type: 3}
+  icon: {fileID: 21300000, guid: 4d4bd505b42c7be488ab181ed2cab51e, type: 3}
   isSpecialItem: 0
   isCurrency: 1
   isConsumable: 0
   quantity: 1
+  product:
+    item: {fileID: 0}
+    equipment: {fileID: 0}
+    price: 1

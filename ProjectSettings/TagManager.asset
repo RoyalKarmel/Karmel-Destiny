@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Spawner
   - Currency
+  - Salesman
+  - Item
   layers:
   - Default
   - TransparentFX
