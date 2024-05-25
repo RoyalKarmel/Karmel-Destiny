@@ -21,6 +21,7 @@ public class ProductSlot : MonoBehaviour
 
     public void PurchaseProduct()
     {
-        item.product.Purchase(item);
+        if (item != null)
+            item.product.Purchase(item);
     }
 }

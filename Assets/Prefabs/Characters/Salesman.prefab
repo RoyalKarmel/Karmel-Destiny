@@ -92,13 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  products:
-  - {fileID: 11400000, guid: 80bec446e53f738459244ef3232e5e42, type: 2}
-  - {fileID: 11400000, guid: a45c10c95952de344999ae255a2b5ecd, type: 2}
-  productsUI: {fileID: 0}
-  specialProducts:
-  - {fileID: 11400000, guid: a45c10c95952de344999ae255a2b5ecd, type: 2}
-  specialProductsUI: {fileID: 0}
+  products: []
+  specialProducts: []
 --- !u!1 &8360464706465474719
 GameObject:
   m_ObjectHideFlags: 0

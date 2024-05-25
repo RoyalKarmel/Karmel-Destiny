@@ -22,10 +22,12 @@ public class Shop : MonoBehaviour
     [Header("Products")]
     public Transform productsUI;
     public ProductSlot[] productsSlots { get; private set; }
+    public int productsCount { get; private set; }
 
     [Header("Special Products")]
     public Transform specialProductsUI;
     public ProductSlot[] specialProductsSlots { get; private set; }
+    public int specialProductsCount { get; private set; }
 
     [Header("Shop UI")]
     public GameObject shopUI;
@@ -36,6 +38,9 @@ public class Shop : MonoBehaviour
 
         productsSlots = productsUI.GetComponentsInChildren<ProductSlot>();
         specialProductsSlots = specialProductsUI.GetComponentsInChildren<ProductSlot>();
+
+        productsCount = productsSlots.Length;
+        specialProductsCount = specialProductsSlots.Length;
     }
 
     public void ToggleShopUI()
