@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4985947713410619248}
   - component: {fileID: 7690099233047676738}
   m_Layer: 0
-  m_Name: Vodka of Doom
+  m_Name: Alcoaxe
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1371095162, guid: b5b488651f5d5944fa4e2a76e5c5cb59, type: 3}
+  m_Sprite: {fileID: -835561385, guid: 7dcd516e4d085544ca0dcd724ac951ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
