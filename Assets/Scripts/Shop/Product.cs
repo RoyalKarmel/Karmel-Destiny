@@ -16,6 +16,7 @@ public class Product
 
         Inventory.instance.Add(itemToPurchase);
         Currency.instance.DecreaseCurrency(price);
+        SoundManager.instance.PlayItemPurchase();
 
         Debug.Log("Purchased: " + itemToPurchase.name);
     }

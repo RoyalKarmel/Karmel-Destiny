@@ -46,5 +46,10 @@ public class Shop : MonoBehaviour
     public void ToggleShopUI()
     {
         shopUI.SetActive(!shopUI.activeSelf);
+
+        if (shopUI.activeSelf)
+            GameManager.instance.ChangeState(GameManager.GameState.Shop);
+        else
+            GameManager.instance.ChangeState(GameManager.GameState.Playing);
     }
 }
