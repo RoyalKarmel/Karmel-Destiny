@@ -6,14 +6,8 @@ public class PlayerStats : CharacterStats
     public int exp = 0;
     private int expToLevelUp = 100;
 
-    [Header("UI")]
-    public StatsManager statsManager;
-
     private int healthIncrease = 20;
 
-    // private int dmgIncrease = 5;
-
-    // Start is called before the first frame update
     void Start()
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
@@ -31,7 +25,7 @@ public class PlayerStats : CharacterStats
     public void GainExperience(int amount)
     {
         exp += amount;
-        statsManager.SetExpText(exp);
+        StatsManager.instance.SetExpText(exp);
     }
 
     void LevelUp()
@@ -60,25 +54,25 @@ public class PlayerStats : CharacterStats
         if (newItem != null)
         {
             damage.AddModifier(newItem.damageModifier);
-            statsManager.SetDamageText(damage.GetValue());
+            StatsManager.instance.SetDamageText(damage.GetValue());
 
             armor.AddModifier(newItem.armorModifier);
-            statsManager.SetArmorText(armor.GetValue());
+            StatsManager.instance.SetArmorText(armor.GetValue());
 
             speed.AddModifier(newItem.speedModifier);
-            statsManager.SetSpeedText(speed.GetValue());
+            StatsManager.instance.SetSpeedText(speed.GetValue());
         }
 
         if (oldItem != null)
         {
             damage.RemoveModifier(oldItem.damageModifier);
-            statsManager.SetDamageText(damage.GetValue());
+            StatsManager.instance.SetDamageText(damage.GetValue());
 
             armor.RemoveModifier(oldItem.armorModifier);
-            statsManager.SetArmorText(armor.GetValue());
+            StatsManager.instance.SetArmorText(armor.GetValue());
 
             speed.RemoveModifier(oldItem.speedModifier);
-            statsManager.SetSpeedText(speed.GetValue());
+            StatsManager.instance.SetSpeedText(speed.GetValue());
         }
     }
 
@@ -86,14 +80,14 @@ public class PlayerStats : CharacterStats
     {
         base.Heal(amount);
 
-        statsManager.SetCurrentHealthText(currentHealth);
+        StatsManager.instance.SetCurrentHealthText(currentHealth);
     }
 
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
 
-        statsManager.SetCurrentHealthText(currentHealth);
+        StatsManager.instance.SetCurrentHealthText(currentHealth);
     }
 
     #region Utils
@@ -101,14 +95,14 @@ public class PlayerStats : CharacterStats
     {
         healthBar.SetMaxValue(maxHealth);
 
-        statsManager.SetLevelText(level);
-        statsManager.SetExpText(exp);
-        statsManager.SetExpToLevelUpText(expToLevelUp);
+        StatsManager.instance.SetLevelText(level);
+        StatsManager.instance.SetExpText(exp);
+        StatsManager.instance.SetExpToLevelUpText(expToLevelUp);
 
-        statsManager.SetMaxHealthText(maxHealth);
-        statsManager.SetDamageText(damage.GetValue());
-        statsManager.SetArmorText(armor.GetValue());
-        statsManager.SetSpeedText(speed.GetValue());
+        StatsManager.instance.SetMaxHealthText(maxHealth);
+        StatsManager.instance.SetDamageText(damage.GetValue());
+        StatsManager.instance.SetArmorText(armor.GetValue());
+        StatsManager.instance.SetSpeedText(speed.GetValue());
     }
     #endregion
 }

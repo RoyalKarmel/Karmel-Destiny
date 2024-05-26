@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,7 @@ public class ItemDatabase : MonoBehaviour
     }
     #endregion
 
+    public List<Item> currency;
     public List<Item> items;
     public List<Equipment> weapons;
     public List<Equipment> armor;

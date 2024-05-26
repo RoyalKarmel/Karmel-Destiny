@@ -9815,8 +9815,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe78657ac0a8524f9ebd8df769705d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
+  currency:
   - {fileID: 11400000, guid: 414a1966b65b4b04c8d5343419767e8f, type: 2}
+  items:
   - {fileID: 11400000, guid: a45c10c95952de344999ae255a2b5ecd, type: 2}
   weapons:
   - {fileID: 11400000, guid: 80bec446e53f738459244ef3232e5e42, type: 2}
@@ -13751,18 +13752,6 @@ PrefabInstance:
       propertyPath: statsManager
       value: 
       objectReference: {fileID: 334110638}
-    - target: {fileID: 6918734145059924829, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6918734145059924829, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6918734145059924829, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -452070685
-      objectReference: {fileID: 0}
     - target: {fileID: 8063150172623974129, guid: f72f06a57c2681e40adcf3c9fae95d7a, type: 3}
       propertyPath: m_Name
       value: Player

@@ -3,6 +3,23 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
+    #region Singleton
+
+    public static StatsManager instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one instance of Stats Manager found!");
+            return;
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
     public TMP_Text timerText;
 
     [Header("Level text")]
