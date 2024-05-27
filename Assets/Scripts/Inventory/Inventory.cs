@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     public bool Add(Item newItem)
     {
         // Check if new item is currency
-        if (newItem.isCurrency)
+        if (newItem.type == Item.ItemType.Currency)
         {
             Currency.instance.AddCurrency(newItem.quantity);
             return true;

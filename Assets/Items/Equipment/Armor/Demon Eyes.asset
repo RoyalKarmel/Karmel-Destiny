@@ -15,8 +15,7 @@ MonoBehaviour:
   name: Demon Eyes
   icon: {fileID: 1376598115, guid: 1766cd46e03de204eac7603213039788, type: 3}
   isSpecialItem: 0
-  isCurrency: 0
-  isEquipment: 1
+  type: 1
   isConsumable: 0
   quantity: 1
   product:

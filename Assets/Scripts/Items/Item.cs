@@ -7,10 +7,9 @@ public class Item : ScriptableObject
     public new string name = "New Item";
     public Sprite icon = null;
     public bool isSpecialItem = false;
-    public bool isCurrency = false;
-    public bool isEquipment = false;
     public bool isConsumable = false;
     public int quantity = 1;
+    public ItemType type;
 
     [Header("Product")]
     public Product product;
@@ -18,7 +17,7 @@ public class Item : ScriptableObject
     public virtual void Use()
     {
         // Play sounds
-        if (!isEquipment)
+        if (type != ItemType.Equipment)
             SoundManager.instance.PlayItemUse();
         else
             SoundManager.instance.PlayItemEquip();
@@ -47,5 +46,13 @@ public class Item : ScriptableObject
     public void RemoveFromInventory()
     {
         Inventory.instance.Remove(this);
+    }
+
+    // Item types
+    public enum ItemType
+    {
+        Currency,
+        Equipment,
+        HealthPotion
     }
 }
