@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         if (!newItem.isSpecialItem)
         {
             // If item is consumable, check if already exist in inventory and then increase quantity
-            if (newItem.isConsumable)
+            if (newItem.type == Item.ItemType.Consumable)
             {
                 Item existingItem = items.Find(item => item.name == newItem.name);
                 if (existingItem != null)

@@ -1,31 +1,26 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+// [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
     [Header("Item")]
     public new string name = "New Item";
     public Sprite icon = null;
     public bool isSpecialItem = false;
-    public bool isConsumable = false;
-    public int quantity = 1;
     public ItemType type;
+
+    [Header("Consumable")]
+    public int quantity = 1;
 
     [Header("Product")]
     public Product product;
 
     public virtual void Use()
     {
-        // Play sounds
-        if (type != ItemType.Equipment)
-            SoundManager.instance.PlayItemUse();
-        else
-            SoundManager.instance.PlayItemEquip();
+        if (type == ItemType.Consumable)
+            DecreaseQuantity();
 
         Debug.Log("Using " + name);
-
-        if (isConsumable)
-            DecreaseQuantity();
     }
 
     // Update item quantity
@@ -36,6 +31,7 @@ public class Item : ScriptableObject
 
     public void DecreaseQuantity()
     {
+        SoundManager.instance.PlayItemUse();
         quantity--;
 
         if (quantity <= 0)
@@ -53,6 +49,6 @@ public class Item : ScriptableObject
     {
         Currency,
         Equipment,
-        HealthPotion
+        Consumable
     }
 }

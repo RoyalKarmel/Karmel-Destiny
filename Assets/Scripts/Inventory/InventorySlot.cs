@@ -19,7 +19,7 @@ public class InventorySlot : MonoBehaviour
 
         removeButton.interactable = true;
 
-        if (item.isConsumable)
+        if (item.type == Item.ItemType.Consumable)
         {
             quantityText.gameObject.SetActive(true);
             quantityText.text = item.quantity.ToString();
