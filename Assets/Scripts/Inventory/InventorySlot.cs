@@ -1,61 +1,26 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    public Image icon;
-    public Button removeButton;
-    public TMP_Text quantityText;
-
-    Item item;
+    public GameObject itemButtonPrefab;
 
     public void AddItem(Item newItem)
     {
-        item = newItem;
+        GameObject itemButtonObject = Instantiate(itemButtonPrefab, transform);
+        ItemButton itemButton = itemButtonObject.GetComponent<ItemButton>();
 
-        icon.sprite = item.icon;
-        icon.enabled = true;
+        itemButton.AddItem(newItem);
+    }
 
-        removeButton.interactable = true;
-
-        if (item.type == Item.ItemType.Consumable)
+    // Dragging item
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (transform.childCount == 0)
         {
-            quantityText.gameObject.SetActive(true);
-            quantityText.text = item.quantity.ToString();
+            GameObject dropped = eventData.pointerDrag;
+            Draggable draggable = dropped.GetComponent<Draggable>();
+            draggable.parentAfterDrag = transform;
         }
-        else
-            quantityText.gameObject.SetActive(false);
-    }
-
-    public void ClearSlot()
-    {
-        item = null;
-
-        icon.sprite = null;
-        icon.enabled = false;
-
-        removeButton.interactable = false;
-
-        quantityText.gameObject.SetActive(false);
-    }
-
-    // Click to use item
-    public void UseItem()
-    {
-        if (item != null)
-        {
-            item.Use();
-
-            // Update item quantity UI
-            if (item != null)
-                quantityText.text = item.quantity.ToString();
-        }
-    }
-
-    // Click to remove item from inventory
-    public void OnRemoveButton()
-    {
-        Inventory.instance.Remove(item);
     }
 }

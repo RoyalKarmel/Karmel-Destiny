@@ -21,10 +21,12 @@ public class EquipmentManager : MonoBehaviour
     EquipmentSlotUI[] equipmentSlots;
 
     Inventory inventory;
+    InventoryUI inventoryUI;
 
     void Start()
     {
         inventory = Inventory.instance;
+        inventoryUI = InventoryUI.instance;
 
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
@@ -48,8 +50,11 @@ public class EquipmentManager : MonoBehaviour
         if (onEquipmentChanged != null)
             onEquipmentChanged.Invoke(newItem, oldItem);
 
+        // Equip item and remove from Inventory UI
         currentEquipment[slotIndex] = newItem;
         equipmentSlots[slotIndex].AddEquipment(newItem);
+
+        inventoryUI.itemsInUI.Remove(newItem);
     }
 
     // Unequip item

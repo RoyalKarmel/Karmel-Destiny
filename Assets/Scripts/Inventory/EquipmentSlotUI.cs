@@ -26,6 +26,7 @@ public class EquipmentSlotUI : MonoBehaviour
     // Called when the remove button is pressed
     public void OnRemoveButtonPressed()
     {
-        EquipmentManager.instance.Unequip((int)equipment.equipSlot);
+        if (equipment != null)
+            EquipmentManager.instance.Unequip((int)equipment.equipSlot);
     }
 }

@@ -1,10 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    #region Singleton
+
+    public static InventoryUI instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one instance of InventoryUI found!");
+            return;
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
     public Transform itemsParent;
     Inventory inventory;
     InventorySlot[] slots;
+
+    [HideInInspector]
+    public List<Item> itemsInUI = new List<Item>();
 
     [SerializeField]
     private GameObject inventoryAndStatsUI;
@@ -31,15 +52,19 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        foreach (var item in inventory.items)
         {
-            if (i < inventory.items.Count)
+            if (!itemsInUI.Contains(item))
             {
-                slots[i].AddItem(inventory.items[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
+                for (int i = 0; i < slots.Length; i++)
+                {
+                    if (slots[i].transform.childCount == 0)
+                    {
+                        slots[i].AddItem(item);
+                        itemsInUI.Add(item);
+                        break; // Exit the loop once the item is added
+                    }
+                }
             }
         }
     }
