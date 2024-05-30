@@ -23,6 +23,6 @@ public enum EquipmentSlot
 {
     Armor,
     Weapon,
-    Companion,
-    Spell,
+    Shield,
+    Amulet,
 }

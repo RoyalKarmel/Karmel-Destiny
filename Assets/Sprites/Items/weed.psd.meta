@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 33aa710c06e5d5b41a580e1b9ba6f1df
+guid: 5ba0029eb764d324c8b75cce318165e7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: items_0
+      name: weed_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 576
+        y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19d9f8cba0e818c4b820b7f08aa29292
-      internalID: -1132075064
+      spriteID: 9fa9998069060f841a9f377544597128
+      internalID: -670628102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weed_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcde76c3e73f11c4ea805837ef5767f0
+      internalID: -849789751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weed_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b788174ebe94a12419ac99aa5e187688
+      internalID: -2071434060
       vertices: []
       indices: 
       edges: []
@@ -154,8 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      items_0: -1132075064
-      items_1: -209350585
+      weed_0: -670628102
+      weed_1: -849789751
+      weed_2: -2071434060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
