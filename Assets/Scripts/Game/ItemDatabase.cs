@@ -22,4 +22,6 @@ public class ItemDatabase : MonoBehaviour
     public List<Item> items;
     public List<Equipment> weapons;
     public List<Equipment> armor;
+    public List<Equipment> shields;
+    public List<Equipment> amulets;
 }

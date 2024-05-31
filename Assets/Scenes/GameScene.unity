@@ -881,7 +881,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9798,6 +9798,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c493fd54a09887b4fa1a22de809041bb, type: 2}
   armor:
   - {fileID: 11400000, guid: e545c23473f232545976dea41c90af66, type: 2}
+  shields: []
+  amulets: []
 --- !u!114 &1353908699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14265,6 +14267,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c1476509081684a980cd70d91e464b, type: 3}
+--- !u!1001 &5131649431071686931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501509388876198085, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902537565500079262, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
+      propertyPath: m_Name
+      value: Chest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f0198c9953da57458b010f4ba37e3f1, type: 3}
 --- !u!1001 &6558601638353761704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14577,6 +14636,7 @@ SceneRoots:
   - {fileID: 7884372931129484990}
   - {fileID: 1447657482}
   - {fileID: 4947485988354667017}
+  - {fileID: 5131649431071686931}
   - {fileID: 1986558511829003866}
   - {fileID: 6558601638353761704}
   - {fileID: 7236790100800423431}
