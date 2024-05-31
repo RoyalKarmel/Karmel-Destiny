@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     // [Header("Level")]
-    public int level { get; set; }
+    public int level = 1;
 
     [Header("Health")]
     public int maxHealth = 100;
@@ -13,7 +13,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Combat")]
     public Stat armor;
     public Stat damage;
-    public int criticalDamage { get; private set; }
+    public float criticalDamage { get; private set; }
 
     [Header("Speed")]
     public Stat speed;
@@ -36,12 +36,12 @@ public class CharacterStats : MonoBehaviour
         healthBar.SetValue(currentHealth);
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        currentHealth -= damage;
+        currentHealth -= (int)damage;
         healthBar.SetValue(currentHealth);
 
         Debug.Log(transform.name + " takes " + damage + " damage.");

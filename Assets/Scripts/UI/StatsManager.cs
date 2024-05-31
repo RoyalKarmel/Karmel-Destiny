@@ -72,12 +72,12 @@ public class StatsManager : MonoBehaviour
     }
 
     // Damage
-    public void SetDamageText(int damage)
+    public void SetDamageText(float damage)
     {
         SetFormattedText(damageText, "Damage: ", damage);
     }
 
-    public void SetArmorText(int armor)
+    public void SetArmorText(float armor)
     {
         SetFormattedText(armorText, "Armor: ", armor);
     }
@@ -92,11 +92,6 @@ public class StatsManager : MonoBehaviour
     private void SetText(TMP_Text textComponent, string text)
     {
         textComponent.text = text;
-    }
-
-    private void SetFormattedText(TMP_Text textComponent, string label, int value)
-    {
-        textComponent.text = $"{label}<color={colorCode}>{value}</color>";
     }
 
     private void SetFormattedText(TMP_Text textComponent, string label, float value)
