@@ -8,7 +8,7 @@ public class PlayerStats : CharacterStats
 
     private int healthIncrease = 20;
 
-    StatsManager statsManager;
+    public StatsManager statsManager { get; private set; }
 
     void Start()
     {

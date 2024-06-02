@@ -8,17 +8,25 @@ public class Weed : Item
     public int bonusSpeed = 1;
     public float duration = 5f;
 
+    PlayerStats playerStats;
+
     public override void Use()
     {
         base.Use();
+
+        playerStats = PlayerManager.instance.playerStats;
 
         PlayerManager.instance.StartCoroutine(ApplySpeedModifier());
     }
 
     IEnumerator ApplySpeedModifier()
     {
-        PlayerManager.instance.playerStats.speed.AddModifier(bonusSpeed);
+        playerStats.speed.AddModifier(bonusSpeed);
+        playerStats.statsManager.SetSpeedText(playerStats.speed.GetValue());
+
         yield return new WaitForSeconds(duration);
-        PlayerManager.instance.playerStats.speed.RemoveModifier(bonusSpeed);
+
+        playerStats.speed.RemoveModifier(bonusSpeed);
+        playerStats.statsManager.SetSpeedText(playerStats.speed.GetValue());
     }
 }
