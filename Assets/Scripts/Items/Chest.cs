@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Chest : Interactable
@@ -24,11 +24,19 @@ public class Chest : Interactable
             if (item.type == ItemType.Consumable)
                 item.quantity = Random.Range(minQuantity, maxQuantity);
 
-            Inventory.instance.Add(item);
-
             // Play animation
             animator.SetTrigger("Open");
             isOpen = true;
+
+            StartCoroutine(DropItem());
         }
+    }
+
+    IEnumerator DropItem()
+    {
+        yield return new WaitForSeconds(1f); // animation time
+
+        Inventory.instance.Add(item);
+        DroppedItemUI.instance.ShowDroppedItem(item);
     }
 }
