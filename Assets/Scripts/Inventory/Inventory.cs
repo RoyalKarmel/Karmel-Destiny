@@ -23,8 +23,7 @@ public class Inventory : MonoBehaviour
     public int space = 20;
     public List<Item> items = new List<Item>();
 
-    [SerializeField]
-    Transform itemsParent;
+    public Transform itemsParent;
 
     public bool Add(Item newItem)
     {
@@ -72,12 +71,6 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
-        Instantiate(
-            item.prefab,
-            PlayerManager.instance.player.transform.position,
-            Quaternion.identity,
-            itemsParent
-        );
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();

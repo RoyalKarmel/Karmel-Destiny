@@ -37,7 +37,7 @@ public class ItemButton : MonoBehaviour
 
             // Remove slot when quantity is 0
             if (item.quantity <= 0)
-                OnRemoveButton();
+                RemoveItem();
 
             // Remove slot when equipt
             if (item.type == ItemType.Equipment)
@@ -49,10 +49,23 @@ public class ItemButton : MonoBehaviour
         }
     }
 
-    // Click to remove item from inventory
-    public void OnRemoveButton()
+    void RemoveItem()
     {
         Inventory.instance.Remove(item);
         Destroy(gameObject);
+    }
+
+    // Click to remove item from inventory
+    public void OnRemoveButton()
+    {
+        // TODO: Fix this, for now when remove item by button, picked up items are not in ui
+        Instantiate(
+            item.prefab,
+            PlayerManager.instance.player.transform.position,
+            Quaternion.identity,
+            Inventory.instance.itemsParent
+        );
+
+        RemoveItem();
     }
 }
