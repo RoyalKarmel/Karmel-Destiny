@@ -54,6 +54,17 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment[slotIndex] = newItem;
         equipmentSlots[slotIndex].AddEquipment(newItem);
 
+        // Equip in player model
+        if (
+            PlayerManager.instance.equipmentSlotToRenderer.TryGetValue(
+                newItem.equipSlot,
+                out var renderer
+            )
+        )
+        {
+            renderer.sprite = newItem.icon;
+        }
+
         inventoryUI.itemsInUI.Remove(newItem);
     }
 
@@ -70,6 +81,17 @@ public class EquipmentManager : MonoBehaviour
 
             if (onEquipmentChanged != null)
                 onEquipmentChanged.Invoke(null, oldItem);
+
+            // Unequip in player model
+            if (
+                PlayerManager.instance.equipmentSlotToRenderer.TryGetValue(
+                    oldItem.equipSlot,
+                    out var renderer
+                )
+            )
+            {
+                renderer.sprite = null;
+            }
         }
     }
 

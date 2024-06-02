@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     public bool Add(Item newItem)
     {
         // Check if new item is currency
-        if (newItem.type == Item.ItemType.Currency)
+        if (newItem.type == ItemType.Currency)
         {
             Currency.instance.AddCurrency(newItem.quantity);
             return true;
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         if (!newItem.isSpecialItem)
         {
             // If item is consumable, check if already exist in inventory and then increase quantity
-            if (newItem.type == Item.ItemType.Consumable)
+            if (newItem.type == ItemType.Consumable)
             {
                 Item existingItem = items.Find(item => item.name == newItem.name);
                 if (existingItem != null)

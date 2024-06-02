@@ -21,7 +21,7 @@ public class Chest : Interactable
             item = GetRandomItem();
 
             // Random item quantity
-            if (item.type == Item.ItemType.Consumable)
+            if (item.type == ItemType.Consumable)
                 item.quantity = Random.Range(minQuantity, maxQuantity);
 
             Inventory.instance.Add(item);

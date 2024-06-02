@@ -19,7 +19,7 @@ public class ItemButton : MonoBehaviour
 
         removeButton.interactable = true;
 
-        if (item.type == Item.ItemType.Consumable)
+        if (item.type == ItemType.Consumable)
         {
             quantityText.gameObject.SetActive(true);
             quantityText.text = item.quantity.ToString();
@@ -40,7 +40,7 @@ public class ItemButton : MonoBehaviour
                 OnRemoveButton();
 
             // Remove slot when equipt
-            if (item.type == Item.ItemType.Equipment)
+            if (item.type == ItemType.Equipment)
                 Destroy(gameObject);
 
             // Update item quantity UI

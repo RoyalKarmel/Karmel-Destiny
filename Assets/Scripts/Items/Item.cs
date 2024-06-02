@@ -43,12 +43,12 @@ public class Item : ScriptableObject
     {
         Inventory.instance.Remove(this);
     }
+}
 
-    // Item types
-    public enum ItemType
-    {
-        Currency,
-        Equipment,
-        Consumable
-    }
+// Item types
+public enum ItemType
+{
+    Currency,
+    Equipment,
+    Consumable
 }
