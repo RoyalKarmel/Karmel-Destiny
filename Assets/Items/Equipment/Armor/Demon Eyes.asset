@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cdd5598403d9748a68e29bea0aa069, type: 3}
   m_Name: Demon Eyes
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1029341902342311052, guid: 9d275872ccc896644b73093b64f3bfb7, type: 3}
   name: Demon Eyes
   icon: {fileID: 1376598115, guid: 1766cd46e03de204eac7603213039788, type: 3}
   isSpecialItem: 0
   type: 1
-  isConsumable: 0
   quantity: 1
   product:
     price: 50

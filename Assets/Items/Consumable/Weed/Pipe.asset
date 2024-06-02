@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7333e1871eb624481ee8489cf7b689, type: 3}
   m_Name: Pipe
   m_EditorClassIdentifier: 
+  prefab: {fileID: 2925141425762873077, guid: 62a3a141dc6bd9b4189894e7e641cb6b, type: 3}
   name: Pipe
   icon: {fileID: -670628102, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
   isSpecialItem: 0

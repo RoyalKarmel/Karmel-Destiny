@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cdd5598403d9748a68e29bea0aa069, type: 3}
   m_Name: Alcoaxe
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1323303048762655243, guid: 41377fa4eaaf3494288d3a6d54a5650b, type: 3}
   name: Alcoaxe
   icon: {fileID: -835561385, guid: 7dcd516e4d085544ca0dcd724ac951ca, type: 3}
   isSpecialItem: 0
   type: 1
-  isConsumable: 0
   quantity: 1
   product:
     price: 50

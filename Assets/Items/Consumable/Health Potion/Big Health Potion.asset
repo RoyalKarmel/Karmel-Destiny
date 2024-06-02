@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b7e4df83e01064cb2bfa617624a939, type: 3}
   m_Name: Big Health Potion
   m_EditorClassIdentifier: 
+  prefab: {fileID: 4746833081320007783, guid: ab044faabdc2b864bba110e55154017b, type: 3}
   name: Big Health Potion
   icon: {fileID: -1304854596, guid: f8951d67b761be04cbc87a5a04b71e36, type: 3}
   isSpecialItem: 0
   type: 2
-  quantity: 1
+  quantity: 5
   product:
     price: 50
   health: 100

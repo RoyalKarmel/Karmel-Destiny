@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7333e1871eb624481ee8489cf7b689, type: 3}
   m_Name: Huge Joint
   m_EditorClassIdentifier: 
+  prefab: {fileID: 7369207509306785580, guid: c7f451ac00852a44496924f49a278068, type: 3}
   name: Huge Joint
   icon: {fileID: -849789751, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
   isSpecialItem: 0

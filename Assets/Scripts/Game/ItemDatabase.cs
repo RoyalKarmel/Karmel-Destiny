@@ -24,4 +24,19 @@ public class ItemDatabase : MonoBehaviour
     public List<Equipment> armor;
     public List<Equipment> shields;
     public List<Equipment> amulets;
+
+    // Random item from chest
+    public Item GetRandomItem()
+    {
+        List<Item> allItems = new List<Item>();
+
+        allItems.AddRange(items);
+        allItems.AddRange(weapons);
+        allItems.AddRange(armor);
+        allItems.AddRange(shields);
+        allItems.AddRange(amulets);
+
+        int index = Random.Range(0, allItems.Count);
+        return allItems[index];
+    }
 }

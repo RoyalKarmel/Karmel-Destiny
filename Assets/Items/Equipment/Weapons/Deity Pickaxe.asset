@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cdd5598403d9748a68e29bea0aa069, type: 3}
   m_Name: Deity Pickaxe
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1367851018818126292, guid: 297a65a2f0f9ba84b9a9221609d9e2e0, type: 3}
   name: Deity Pickaxe
   icon: {fileID: 1491723472, guid: 7dcd516e4d085544ca0dcd724ac951ca, type: 3}
   isSpecialItem: 0
   type: 1
-  isConsumable: 0
   quantity: 1
   product:
     price: 50

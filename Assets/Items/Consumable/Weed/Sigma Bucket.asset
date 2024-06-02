@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7333e1871eb624481ee8489cf7b689, type: 3}
   m_Name: Sigma Bucket
   m_EditorClassIdentifier: 
+  prefab: {fileID: 2307480359068939516, guid: e0424cc43791ab24ab14f68bb487a55b, type: 3}
   name: Sigma Bucket
   icon: {fileID: -2071434060, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
   isSpecialItem: 0

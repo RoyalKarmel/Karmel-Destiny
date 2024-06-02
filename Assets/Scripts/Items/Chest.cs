@@ -18,7 +18,7 @@ public class Chest : Interactable
         {
             base.Interact();
 
-            item = GetRandomItem();
+            item = ItemDatabase.instance.GetRandomItem();
 
             // Random item quantity
             if (item.type == ItemType.Consumable)
@@ -30,20 +30,5 @@ public class Chest : Interactable
             animator.SetTrigger("Open");
             isOpen = true;
         }
-    }
-
-    // Random item from chest
-    Item GetRandomItem()
-    {
-        List<Item> allItems = new List<Item>();
-
-        allItems.AddRange(ItemDatabase.instance.items);
-        allItems.AddRange(ItemDatabase.instance.weapons);
-        allItems.AddRange(ItemDatabase.instance.armor);
-        allItems.AddRange(ItemDatabase.instance.shields);
-        allItems.AddRange(ItemDatabase.instance.amulets);
-
-        int index = Random.Range(0, allItems.Count);
-        return allItems[index];
     }
 }
