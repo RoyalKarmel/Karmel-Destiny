@@ -4,6 +4,7 @@ using UnityEngine;
 public class Product
 {
     public int price = 50;
+    public bool isPurchased { get; private set; }
 
     // Buy item
     public void Purchase(Item itemToPurchase)
@@ -13,6 +14,8 @@ public class Product
             Debug.Log("Not enought money!");
             return;
         }
+
+        isPurchased = true;
 
         Inventory.instance.Add(itemToPurchase);
         Currency.instance.DecreaseCurrency(price);
