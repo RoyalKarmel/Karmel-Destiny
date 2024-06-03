@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public Transform damagePopupPrefab;
-
     public enum GameState
     {
         MainMenu,

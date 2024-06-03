@@ -18,7 +18,7 @@ public class ItemDatabase : MonoBehaviour
     }
     #endregion
 
-    public List<Item> currency;
+    public Item currency;
     public List<Item> items;
     public List<Equipment> weapons;
     public List<Equipment> armor;

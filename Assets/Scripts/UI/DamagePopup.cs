@@ -7,7 +7,7 @@ public class DamagePopup : MonoBehaviour
     public static DamagePopup Create(Vector3 position, float damage, bool isCriticalHit)
     {
         Transform damagePopupTransform = Instantiate(
-            GameManager.instance.damagePopupPrefab,
+            GameAssets.instance.damagePopupPrefab,
             position,
             Quaternion.identity
         );

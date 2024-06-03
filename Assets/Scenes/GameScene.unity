@@ -6413,7 +6413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &549623868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6660,7 +6660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &611257998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10435,7 +10435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1353908692}
   - component: {fileID: 1353908699}
-  - component: {fileID: 1353908698}
+  - component: {fileID: 1353908700}
+  - component: {fileID: 1353908701}
   - component: {fileID: 1353908697}
   - component: {fileID: 1353908693}
   m_Layer: 0
@@ -10493,31 +10494,6 @@ MonoBehaviour:
   playerWeapon: {fileID: 1470104058}
   playerShield: {fileID: 2071397732}
   playerStats: {fileID: 663497295}
---- !u!114 &1353908698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353908691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe78657ac0a8524f9ebd8df769705d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currency:
-  - {fileID: 11400000, guid: 414a1966b65b4b04c8d5343419767e8f, type: 2}
-  items:
-  - {fileID: 11400000, guid: a617a0843d67191428b35d8c7e612ee6, type: 2}
-  - {fileID: 11400000, guid: fc08cccb9b44e3244be61050612ba02f, type: 2}
-  - {fileID: 11400000, guid: 74c933355b611b3459e43961f4d2107d, type: 2}
-  weapons:
-  - {fileID: 11400000, guid: 80bec446e53f738459244ef3232e5e42, type: 2}
-  - {fileID: 11400000, guid: c493fd54a09887b4fa1a22de809041bb, type: 2}
-  armor:
-  - {fileID: 11400000, guid: e545c23473f232545976dea41c90af66, type: 2}
-  shields: []
-  amulets: []
 --- !u!114 &1353908699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10530,7 +10506,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf189ebffafeb3429f0416460f40e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1353908700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353908691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34c40566e284164cae5e540ee76c945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damagePopupPrefab: {fileID: 3398347222387836558, guid: 81030e877ff957c4796d7e8e8302b8b6, type: 3}
+  itemButtonPrefab: {fileID: 5171631522870204609, guid: 4ee22b4857a4b9840ae6e1a76ee6e307, type: 3}
+--- !u!114 &1353908701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353908691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe78657ac0a8524f9ebd8df769705d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currency: {fileID: 11400000, guid: 414a1966b65b4b04c8d5343419767e8f, type: 2}
+  items:
+  - {fileID: 11400000, guid: a617a0843d67191428b35d8c7e612ee6, type: 2}
+  - {fileID: 11400000, guid: fc08cccb9b44e3244be61050612ba02f, type: 2}
+  - {fileID: 11400000, guid: 74c933355b611b3459e43961f4d2107d, type: 2}
+  - {fileID: 11400000, guid: 7a375e1fe71660a4bbc937e6811a23d0, type: 2}
+  - {fileID: 11400000, guid: 025ddb997f8aa5b4faa75c7ef178a791, type: 2}
+  - {fileID: 11400000, guid: 8f85c9285a414614aa4cbb0b55f97f9d, type: 2}
+  weapons:
+  - {fileID: 11400000, guid: 80bec446e53f738459244ef3232e5e42, type: 2}
+  - {fileID: 11400000, guid: c493fd54a09887b4fa1a22de809041bb, type: 2}
+  armor:
+  - {fileID: 11400000, guid: e545c23473f232545976dea41c90af66, type: 2}
+  shields: []
+  amulets: []
 --- !u!1001 &1383560914
 PrefabInstance:
   m_ObjectHideFlags: 0

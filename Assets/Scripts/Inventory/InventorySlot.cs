@@ -3,11 +3,9 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    public GameObject itemButtonPrefab;
-
     public void AddItem(Item newItem)
     {
-        GameObject itemButtonObject = Instantiate(itemButtonPrefab, transform);
+        GameObject itemButtonObject = Instantiate(GameAssets.instance.itemButtonPrefab, transform);
         ItemButton itemButton = itemButtonObject.GetComponent<ItemButton>();
 
         itemButton.AddItem(newItem);
