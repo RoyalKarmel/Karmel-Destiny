@@ -34,8 +34,6 @@ public class StatsManager : MonoBehaviour
     public TMP_Text armorText;
     public TMP_Text speedText;
 
-    private const string colorCode = "#FF7402";
-
     public void SetTimerText(string gameTime)
     {
         timerText.text = gameTime;
@@ -44,17 +42,17 @@ public class StatsManager : MonoBehaviour
     #region Level Text
     public void SetLevelText(int level)
     {
-        SetFormattedText(levelText, "Level: ", level);
+        SetText(levelText, level);
     }
 
     public void SetExpText(int exp)
     {
-        SetText(expText, exp.ToString());
+        SetText(expText, exp);
     }
 
     public void SetExpToLevelUpText(int expToLevelUp)
     {
-        SetText(expToLevelUpText, expToLevelUp.ToString());
+        SetText(expToLevelUpText, expToLevelUp);
     }
     #endregion
 
@@ -62,40 +60,35 @@ public class StatsManager : MonoBehaviour
     // HP
     public void SetCurrentHealthText(int currentHealth)
     {
-        SetFormattedText(currentHealthText, "Current Health: ", currentHealth);
+        SetText(currentHealthText, currentHealth);
     }
 
     public void SetMaxHealthText(int maxHealth)
     {
-        SetFormattedText(maxHealthText, "Max Health: ", maxHealth);
+        SetText(maxHealthText, maxHealth);
         SetCurrentHealthText(maxHealth); // Update current health as well
     }
 
     // Damage
     public void SetDamageText(float damage)
     {
-        SetFormattedText(damageText, "Damage: ", damage);
+        SetText(damageText, damage);
     }
 
     public void SetArmorText(float armor)
     {
-        SetFormattedText(armorText, "Armor: ", armor);
+        SetText(armorText, armor);
     }
 
     // Speed
     public void SetSpeedText(float speed)
     {
-        SetFormattedText(speedText, "Speed: ", speed);
+        SetText(speedText, speed);
     }
     #endregion
 
-    private void SetText(TMP_Text textComponent, string text)
+    private void SetText(TMP_Text textComponent, float value)
     {
-        textComponent.text = text;
-    }
-
-    private void SetFormattedText(TMP_Text textComponent, string label, float value)
-    {
-        textComponent.text = $"{label}<color={colorCode}>{value}</color>";
+        textComponent.text = value.ToString();
     }
 }

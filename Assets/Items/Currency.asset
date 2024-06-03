@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4dfc813bc3e624f9b061f8aa787e2f, type: 3}
   m_Name: Currency
   m_EditorClassIdentifier: 
+  prefab: {fileID: 5274001887366263333, guid: 2bd4059e0288b694db4d8c655907170d, type: 3}
   name: Currency
   icon: {fileID: 21300000, guid: 4d4bd505b42c7be488ab181ed2cab51e, type: 3}
   isSpecialItem: 0
   type: 0
-  isConsumable: 0
   quantity: 10
   product:
     price: 1
