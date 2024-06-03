@@ -13,6 +13,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Combat")]
     public Stat armor;
     public Stat damage;
+    public float criticalHitMultiplier { get; private set; }
 
     [Header("Speed")]
     public Stat speed;
@@ -20,6 +21,7 @@ public class CharacterStats : MonoBehaviour
     void Awake()
     {
         currentHealth = maxHealth;
+        criticalHitMultiplier = 1.5f;
 
         healthBar.SetMaxValue(maxHealth);
     }
@@ -37,7 +39,7 @@ public class CharacterStats : MonoBehaviour
     public virtual void TakeDamage(float damage, bool isCriticalHit = false)
     {
         if (isCriticalHit)
-            damage *= 1.5f;
+            damage *= criticalHitMultiplier;
 
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);

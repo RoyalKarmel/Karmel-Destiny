@@ -25,6 +25,9 @@ public class EnemyStats : CharacterStats
     {
         base.TakeDamage(damage, isCriticalHit);
 
+        if (isCriticalHit)
+            damage *= criticalHitMultiplier;
+
         DamagePopup.Create(damagePopup.position, damage, isCriticalHit);
     }
 
