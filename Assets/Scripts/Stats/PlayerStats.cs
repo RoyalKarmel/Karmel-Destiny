@@ -86,9 +86,9 @@ public class PlayerStats : CharacterStats
         statsManager.SetCurrentHealthText(currentHealth);
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, bool isCriticalHit = false)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, isCriticalHit);
 
         statsManager.SetCurrentHealthText(currentHealth);
     }

@@ -43,8 +43,8 @@ public class EnemyCombat : MonoBehaviour
         if (!isAttacking)
         {
             float randomValue = Random.value;
-            if (randomValue < criticalChance)
-                playerStats.TakeDamage(enemyStats.criticalDamage);
+            if (randomValue <= criticalChance)
+                playerStats.TakeDamage(enemyStats.damage.GetValue(), true);
             else
                 playerStats.TakeDamage(enemyStats.damage.GetValue());
 

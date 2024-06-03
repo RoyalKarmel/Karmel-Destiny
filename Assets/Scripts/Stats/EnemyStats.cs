@@ -3,6 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats : CharacterStats
 {
+    [Header("Damage Popup")]
+    public Transform damagePopup;
+
     [Header("Experience")]
     public int minExp = 10;
     public int maxExp = 30;
@@ -16,6 +19,13 @@ public class EnemyStats : CharacterStats
     void Start()
     {
         player = PlayerManager.instance.playerStats;
+    }
+
+    public override void TakeDamage(float damage, bool isCriticalHit = false)
+    {
+        base.TakeDamage(damage, isCriticalHit);
+
+        DamagePopup.Create(damagePopup.position, damage, isCriticalHit);
     }
 
     public override void Die()

@@ -6719,7 +6719,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000007f404621e3f20de5
+  m_ApplyToSortingLayers: 000000007f404621e3f20de5359df14d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -7579,7 +7579,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 558252159
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -10436,8 +10436,8 @@ GameObject:
   - component: {fileID: 1353908692}
   - component: {fileID: 1353908699}
   - component: {fileID: 1353908698}
-  - component: {fileID: 1353908693}
   - component: {fileID: 1353908697}
+  - component: {fileID: 1353908693}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -10476,7 +10476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fc3f6f40a60e44a9a51ba17ddcff3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsManager: {fileID: 334110638}
 --- !u!114 &1353908697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10531,6 +10530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf189ebffafeb3429f0416460f40e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePopupPrefab: {fileID: 3398347222387836558, guid: 81030e877ff957c4796d7e8e8302b8b6, type: 3}
 --- !u!1001 &1383560914
 PrefabInstance:
   m_ObjectHideFlags: 0

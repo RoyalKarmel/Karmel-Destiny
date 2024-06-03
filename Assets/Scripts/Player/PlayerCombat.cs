@@ -53,11 +53,13 @@ public class PlayerCombat : MonoBehaviour
         // Damage enemies
         foreach (Collider2D enemy in hitEnemies)
         {
+            EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+
             float randomValue = Random.value;
-            if (randomValue < criticalChance)
-                enemy.GetComponent<EnemyStats>().TakeDamage(characterStats.criticalDamage);
+            if (randomValue <= criticalChance)
+                enemyStats.TakeDamage(characterStats.damage.GetValue(), true);
             else
-                enemy.GetComponent<EnemyStats>().TakeDamage(characterStats.damage.GetValue());
+                enemyStats.TakeDamage(characterStats.damage.GetValue());
         }
     }
 

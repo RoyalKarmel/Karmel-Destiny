@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public StatsManager statsManager;
+    StatsManager statsManager;
+
+    void Start()
+    {
+        statsManager = StatsManager.instance;
+    }
 
     // Update is called once per frame
     void Update()
