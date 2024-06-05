@@ -3,14 +3,11 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField]
-    private CharacterStats characterStats;
+    private PlayerStats playerStats;
 
     // public Animator animator;
 
-    [Header("Attack")]
-    public float attackRange = 0.5f;
-    public float criticalChance = 0.1f;
-
+    [Header("Components")]
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
@@ -22,9 +19,62 @@ public class PlayerCombat : MonoBehaviour
         UpdateAttackPointPosition();
 
         if (Input.GetMouseButtonDown(0))
-            Attack();
+            MeleeAttack();
+
+        if (Input.GetMouseButtonDown(1))
+            RangeAttack();
     }
 
+    #region Combat
+    void MeleeAttack()
+    {
+        // Play an attack animation
+        // animator.SetTrigger("attack");
+
+        // Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
+            attackPoint.position,
+            playerStats.meleeRange.GetValue(),
+            enemyLayers
+        );
+
+        // Damage enemies
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+
+            float randomValue = Random.value;
+            if (randomValue <= playerStats.criticalChance)
+                enemyStats.TakeDamage(playerStats.damage.GetValue(), true);
+            else
+                enemyStats.TakeDamage(playerStats.damage.GetValue());
+        }
+    }
+
+    void RangeAttack()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        Vector3 direction = (mousePosition - transform.position).normalized;
+
+        GameObject projectile = Instantiate(
+            GameAssets.instance.playerProjectile,
+            transform.position,
+            Quaternion.identity
+        );
+        projectile.transform.SetParent(transform);
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.velocity = direction * playerStats.projectileSpeed.GetValue();
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    #endregion
+
+    #region Utils
     void UpdateAttackPointPosition()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -38,36 +88,18 @@ public class PlayerCombat : MonoBehaviour
         attackPoint.position = transform.position + direction;
     }
 
-    void Attack()
-    {
-        // Play an attack animation
-        // animator.SetTrigger("attack");
-
-        // Detect enemies in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
-            attackPoint.position,
-            attackRange,
-            enemyLayers
-        );
-
-        // Damage enemies
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
-
-            float randomValue = Random.value;
-            if (randomValue <= criticalChance)
-                enemyStats.TakeDamage(characterStats.damage.GetValue(), true);
-            else
-                enemyStats.TakeDamage(characterStats.damage.GetValue());
-        }
-    }
-
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
 
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        // Melee attack
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, playerStats.meleeRange.GetValue());
+
+        // Range attack
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, playerStats.projectileRange.GetValue());
     }
+    #endregion
 }

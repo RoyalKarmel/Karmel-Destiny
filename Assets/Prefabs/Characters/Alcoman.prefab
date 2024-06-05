@@ -408,13 +408,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  prefab: {fileID: 5568825199632468015}
   maxHealth: 50
   healthBar: {fileID: 876897644693523239}
   armor:
     baseValue: 0
   damage:
     baseValue: 20
+  meleeRange:
+    baseValue: 1.5
+  projectileRange:
+    baseValue: 0
+  criticalHitMultiplier: 1.5
+  criticalChance: 0.1
   speed:
     baseValue: 3
   damagePopup: {fileID: 6892843112770427645}
@@ -481,9 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7c9078eac1051478d232b4f2604b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
-  criticalChance: 0.1
   attackCooldown: 1
+  enemyStats: {fileID: 1501740918884077668}
 --- !u!1 &6718463463367348364
 GameObject:
   m_ObjectHideFlags: 0

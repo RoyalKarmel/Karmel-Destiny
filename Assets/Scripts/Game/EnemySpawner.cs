@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     GameObject GetRandomEnemyPrefab()
     {
-        var enemies = GameAssets.instance.enemyDatabase.enemies;
+        var enemies = GameAssets.instance.enemies.enemies;
         if (enemies == null || enemies.Count == 0)
             return null;
 

@@ -3,6 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats : CharacterStats
 {
+    [Header("Combat Type")]
+    public CombatType combatType;
+
     [Header("Damage Popup")]
     public Transform damagePopup;
 
@@ -50,4 +53,10 @@ public class EnemyStats : CharacterStats
 
         Destroy(gameObject);
     }
+}
+
+public enum CombatType
+{
+    Melee,
+    Range
 }

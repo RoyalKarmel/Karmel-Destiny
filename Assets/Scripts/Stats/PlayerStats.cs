@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    [Header("Level")]
-    public int exp = 0;
+    [Header("Range Attack")]
+    public Stat projectileDamage;
+
+    public int exp { get; private set; }
     private int expToLevelUp = 100;
 
     private int healthIncrease = 20;
@@ -14,6 +16,8 @@ public class PlayerStats : CharacterStats
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
         statsManager = StatsManager.instance;
+
+        exp = 0;
 
         SetUI();
     }

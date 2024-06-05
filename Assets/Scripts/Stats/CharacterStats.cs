@@ -6,23 +6,30 @@ public class CharacterStats : MonoBehaviour
     public int level = 1;
     public new string name { get; private set; }
 
-    [Header("Health")]
+    [Header("Health & Armor")]
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
     public ResourceBars healthBar;
-
-    [Header("Combat")]
     public Stat armor;
-    public Stat damage;
-    public float criticalHitMultiplier { get; private set; }
 
     [Header("Speed")]
     public Stat speed;
 
+    [Header("Melee Combat")]
+    public Stat damage;
+    public Stat meleeRange;
+
+    [Header("Range Combat")]
+    public Stat projectileRange;
+    public Stat projectileSpeed;
+
+    [Header("Combat Modifiers")]
+    public float criticalHitMultiplier = 1.5f;
+    public float criticalChance = 0.1f;
+
     void Awake()
     {
         currentHealth = maxHealth;
-        criticalHitMultiplier = 1.5f;
 
         healthBar.SetMaxValue(maxHealth);
 

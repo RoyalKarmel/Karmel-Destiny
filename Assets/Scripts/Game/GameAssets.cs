@@ -18,8 +18,14 @@ public class GameAssets : MonoBehaviour
 
     #endregion
 
+    [Header("UI")]
     public Transform damagePopupPrefab;
     public GameObject itemButtonPrefab;
 
-    public EnemyDatabase enemyDatabase;
+    [Header("Projectile")]
+    public GameObject playerProjectile;
+    public GameObject enemyProjectile;
+
+    [Header("Enemy Database")]
+    public EnemyDatabase enemies;
 }

@@ -10520,7 +10520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePopupPrefab: {fileID: 3398347222387836558, guid: 81030e877ff957c4796d7e8e8302b8b6, type: 3}
   itemButtonPrefab: {fileID: 5171631522870204609, guid: 4ee22b4857a4b9840ae6e1a76ee6e307, type: 3}
-  enemyDatabase:
+  playerProjectile: {fileID: 6090533644315199790, guid: 6119d3ac92458e1468d721b4a7be0734, type: 3}
+  enemyProjectile: {fileID: 6090533644315199790, guid: 73d1a824b2e47e04799d9cd3c530d830, type: 3}
+  enemies:
     enemies:
     - {fileID: 1501740918884077668, guid: 7939ea7030b417c49bcc082d53f23214, type: 3}
     - {fileID: 600441708992006843, guid: e54f9c6eed2d36a4b8bc2884967b5429, type: 3}
