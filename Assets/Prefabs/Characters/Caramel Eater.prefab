@@ -546,18 +546,15 @@ MonoBehaviour:
   healthBar: {fileID: 3416760186920383052}
   armor:
     baseValue: 0
-  damage:
-    baseValue: 20
-  meleeRange:
-    baseValue: 0
-  projectileRange:
-    baseValue: 10
-  projectileSpeed:
-    baseValue: 7
-  criticalHitMultiplier: 1.5
-  criticalChance: 0.1
   speed:
     baseValue: 3
+  damage:
+    baseValue: 20
+  meleeRange: 0
+  projectileRange: 10
+  projectileSpeed: 10
+  criticalHitMultiplier: 1.5
+  criticalChance: 0.1
   combatType: 1
   damagePopup: {fileID: 1651731463010209740}
   minExp: 10

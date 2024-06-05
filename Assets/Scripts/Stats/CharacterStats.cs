@@ -17,11 +17,11 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Melee Combat")]
     public Stat damage;
-    public Stat meleeRange;
+    public float meleeRange;
 
     [Header("Range Combat")]
-    public Stat projectileRange;
-    public Stat projectileSpeed;
+    public float projectileRange;
+    public float projectileSpeed;
 
     [Header("Combat Modifiers")]
     public float criticalHitMultiplier = 1.5f;

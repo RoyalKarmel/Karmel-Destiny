@@ -7,6 +7,7 @@ public class Equipment : Item
     public EquipmentSlot equipSlot;
     public int armorModifier;
     public int damageModifier;
+    public int projectileDamageModifier;
     public int speedModifier;
 
     public override void Use()
@@ -23,6 +24,6 @@ public enum EquipmentSlot
 {
     Armor,
     Weapon,
-    Shield,
+    Spell,
     Amulet,
 }

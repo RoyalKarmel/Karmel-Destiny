@@ -20,7 +20,6 @@ public class StatsManager : MonoBehaviour
 
     #endregion
 
-    public TMP_Text timerText;
 
     [Header("Level text")]
     public TMP_Text levelText;
@@ -30,14 +29,10 @@ public class StatsManager : MonoBehaviour
     [Header("Stats text")]
     public TMP_Text currentHealthText;
     public TMP_Text maxHealthText;
-    public TMP_Text damageText;
+    public TMP_Text meleeDamageText;
+    public TMP_Text rangeDamageText;
     public TMP_Text armorText;
     public TMP_Text speedText;
-
-    public void SetTimerText(string gameTime)
-    {
-        timerText.text = gameTime;
-    }
 
     #region Level Text
     public void SetLevelText(int level)
@@ -70,11 +65,17 @@ public class StatsManager : MonoBehaviour
     }
 
     // Damage
-    public void SetDamageText(float damage)
+    public void SetMeleeDamageText(float damage)
     {
-        SetText(damageText, damage);
+        SetText(meleeDamageText, damage);
     }
 
+    public void SetRangeDamageText(float damage)
+    {
+        SetText(rangeDamageText, damage);
+    }
+
+    // Armor
     public void SetArmorText(float armor)
     {
         SetText(armorText, armor);

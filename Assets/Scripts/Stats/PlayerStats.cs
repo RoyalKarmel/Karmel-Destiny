@@ -51,8 +51,6 @@ public class PlayerStats : CharacterStats
     {
         maxHealth += healthIncrease;
         Heal(maxHealth);
-
-        // damage += dmgIncrease;
     }
     #endregion
 
@@ -61,7 +59,10 @@ public class PlayerStats : CharacterStats
         if (newItem != null)
         {
             damage.AddModifier(newItem.damageModifier);
-            statsManager.SetDamageText(damage.GetValue());
+            statsManager.SetMeleeDamageText(damage.GetValue());
+
+            projectileDamage.AddModifier(newItem.projectileDamageModifier);
+            statsManager.SetRangeDamageText(projectileDamage.GetValue());
 
             armor.AddModifier(newItem.armorModifier);
             statsManager.SetArmorText(armor.GetValue());
@@ -73,7 +74,10 @@ public class PlayerStats : CharacterStats
         if (oldItem != null)
         {
             damage.RemoveModifier(oldItem.damageModifier);
-            statsManager.SetDamageText(damage.GetValue());
+            statsManager.SetMeleeDamageText(damage.GetValue());
+
+            projectileDamage.RemoveModifier(newItem.projectileDamageModifier);
+            statsManager.SetRangeDamageText(projectileDamage.GetValue());
 
             armor.RemoveModifier(oldItem.armorModifier);
             statsManager.SetArmorText(armor.GetValue());
@@ -107,7 +111,8 @@ public class PlayerStats : CharacterStats
         statsManager.SetExpToLevelUpText(expToLevelUp);
 
         statsManager.SetMaxHealthText(maxHealth);
-        statsManager.SetDamageText(damage.GetValue());
+        statsManager.SetMeleeDamageText(damage.GetValue());
+        statsManager.SetRangeDamageText(projectileDamage.GetValue());
         statsManager.SetArmorText(armor.GetValue());
         statsManager.SetSpeedText(speed.GetValue());
     }

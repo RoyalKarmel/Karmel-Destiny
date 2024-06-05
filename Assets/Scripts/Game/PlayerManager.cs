@@ -21,8 +21,7 @@ public class PlayerManager : MonoBehaviour
         equipmentSlotToRenderer = new Dictionary<EquipmentSlot, SpriteRenderer>
         {
             { EquipmentSlot.Armor, playerArmor },
-            { EquipmentSlot.Weapon, playerWeapon },
-            { EquipmentSlot.Shield, playerShield }
+            { EquipmentSlot.Weapon, playerWeapon }
         };
     }
 
@@ -34,7 +33,6 @@ public class PlayerManager : MonoBehaviour
     [Header("Player Equipment")]
     public SpriteRenderer playerArmor;
     public SpriteRenderer playerWeapon;
-    public SpriteRenderer playerShield;
 
     [Header("Player Stats")]
     public PlayerStats playerStats;

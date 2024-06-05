@@ -1,13 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    StatsManager statsManager;
-
-    void Start()
-    {
-        statsManager = StatsManager.instance;
-    }
+    public TMP_Text timerText;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +14,11 @@ public class Timer : MonoBehaviour
         int seconds = (int)(currentTime % 60);
 
         string gameTime = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
-        statsManager.SetTimerText(gameTime);
+        SetTimerText(gameTime);
+    }
+
+    void SetTimerText(string gameTime)
+    {
+        timerText.text = gameTime;
     }
 }

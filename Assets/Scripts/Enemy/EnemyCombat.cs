@@ -33,17 +33,14 @@ public class EnemyCombat : MonoBehaviour
         {
             if (enemyStats.combatType == CombatType.Melee)
             {
-                if (
-                    Vector3.Distance(transform.position, player.position)
-                    <= enemyStats.meleeRange.GetValue()
-                )
+                if (Vector3.Distance(transform.position, player.position) <= enemyStats.meleeRange)
                     MeleeAttack();
             }
             else
             {
                 if (
                     Vector3.Distance(transform.position, player.position)
-                    <= enemyStats.projectileRange.GetValue()
+                    <= enemyStats.projectileRange
                 )
                     RangeAttack();
             }
@@ -77,7 +74,7 @@ public class EnemyCombat : MonoBehaviour
         projectile.transform.SetParent(transform);
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * enemyStats.projectileSpeed.GetValue();
+        rb.velocity = direction * enemyStats.projectileSpeed;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -92,10 +89,10 @@ public class EnemyCombat : MonoBehaviour
         Gizmos.color = Color.red;
 
         // Gizmos on melee
-        if (enemyStats.meleeRange.GetValue() > 0)
-            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange.GetValue());
+        if (enemyStats.meleeRange > 0)
+            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange);
         // Gizmos on range attack
-        else if (enemyStats.projectileRange.GetValue() > 0)
-            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange.GetValue());
+        else if (enemyStats.projectileRange > 0)
+            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange);
     }
 }

@@ -60,7 +60,7 @@ public class Salesman : Interactable
 
         combinedList.AddRange(ItemDatabase.instance.weapons);
         combinedList.AddRange(ItemDatabase.instance.armor);
-        combinedList.AddRange(ItemDatabase.instance.shields);
+        combinedList.AddRange(ItemDatabase.instance.spells);
         combinedList.AddRange(ItemDatabase.instance.amulets);
 
         int index = Random.Range(0, combinedList.Count);

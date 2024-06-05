@@ -22,18 +22,12 @@ public class Projectile : MonoBehaviour
     {
         if (isPlayerProjectile)
         {
-            if (
-                Vector2.Distance(startPosition, transform.position)
-                > playerStats.projectileRange.GetValue()
-            )
+            if (Vector2.Distance(startPosition, transform.position) > playerStats.projectileRange)
                 Destroy(gameObject);
         }
         else
         {
-            if (
-                Vector2.Distance(startPosition, transform.position)
-                > enemyStats.projectileRange.GetValue()
-            )
+            if (Vector2.Distance(startPosition, transform.position) > enemyStats.projectileRange)
                 Destroy(gameObject);
         }
     }

@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
             attackPoint.position,
-            playerStats.meleeRange.GetValue(),
+            playerStats.meleeRange,
             enemyLayers
         );
 
@@ -66,7 +66,7 @@ public class PlayerCombat : MonoBehaviour
         projectile.transform.SetParent(transform);
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * playerStats.projectileSpeed.GetValue();
+        rb.velocity = direction * playerStats.projectileSpeed;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -95,11 +95,11 @@ public class PlayerCombat : MonoBehaviour
 
         // Melee attack
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, playerStats.meleeRange.GetValue());
+        Gizmos.DrawWireSphere(attackPoint.position, playerStats.meleeRange);
 
         // Range attack
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, playerStats.projectileRange.GetValue());
+        Gizmos.DrawWireSphere(transform.position, playerStats.projectileRange);
     }
     #endregion
 }

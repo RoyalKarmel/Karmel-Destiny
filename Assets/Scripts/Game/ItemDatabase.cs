@@ -22,7 +22,7 @@ public class ItemDatabase : MonoBehaviour
     public List<Item> items;
     public List<Equipment> weapons;
     public List<Equipment> armor;
-    public List<Equipment> shields;
+    public List<Equipment> spells;
     public List<Equipment> amulets;
 
     // Random item from chest
@@ -33,7 +33,7 @@ public class ItemDatabase : MonoBehaviour
         allItems.AddRange(items);
         allItems.AddRange(weapons);
         allItems.AddRange(armor);
-        allItems.AddRange(shields);
+        allItems.AddRange(spells);
         allItems.AddRange(amulets);
 
         int index = Random.Range(0, allItems.Count);
