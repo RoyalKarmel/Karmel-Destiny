@@ -8,7 +8,7 @@ public class ItemButton : MonoBehaviour
     public Button removeButton;
     public TMP_Text quantityText;
 
-    Item item;
+    public Item item { get; private set; }
 
     public void AddItem(Item newItem)
     {
