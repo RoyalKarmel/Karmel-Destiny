@@ -31,6 +31,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip itemPurchase;
     public AudioClip itemUse;
     public AudioClip itemEquip;
+    public AudioClip itemPickUp;
+    public AudioClip openChest;
 
     public void PlayMusic(AudioClip clip)
     {
@@ -58,4 +60,8 @@ public class SoundManager : MonoBehaviour
     public void PlayItemUse() => PlaySFX(itemUse);
 
     public void PlayItemEquip() => PlaySFX(itemEquip);
+
+    public void PlayItemPickUp() => PlaySFX(itemPickUp);
+
+    public void PlayOpenChest() => PlaySFX(openChest);
 }

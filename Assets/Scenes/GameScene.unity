@@ -11576,6 +11576,8 @@ MonoBehaviour:
   itemPurchase: {fileID: 8300000, guid: dfd885a38b1b0a94dade5c50a021ce8d, type: 3}
   itemUse: {fileID: 8300000, guid: 766c283622876c74db20fe87ddf59930, type: 3}
   itemEquip: {fileID: 8300000, guid: ab41383120df473489c0082ec85b3f39, type: 3}
+  itemPickUp: {fileID: 8300000, guid: 9f28f95c3970b2f4a9ef023011421b7b, type: 3}
+  openChest: {fileID: 8300000, guid: 2a5b384a294d8d642a940d425caa370c, type: 3}
 --- !u!1001 &1569885492
 PrefabInstance:
   m_ObjectHideFlags: 0

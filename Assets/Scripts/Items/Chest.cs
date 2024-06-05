@@ -28,6 +28,8 @@ public class Chest : Interactable
             animator.SetTrigger("Open");
             isOpen = true;
 
+            SoundManager.instance.PlayOpenChest();
+
             StartCoroutine(DropItem());
         }
     }
