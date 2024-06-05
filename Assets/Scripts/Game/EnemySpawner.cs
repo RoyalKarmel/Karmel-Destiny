@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-
     [Header("Spawn variables")]
     public float spawnInterval = 1f;
     public int maxEnemies = 10;
@@ -12,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (currentEnemyCount >= maxEnemies) return;
+        if (currentEnemyCount >= maxEnemies)
+            return;
 
         elapsedTime += Time.deltaTime;
 
@@ -29,6 +28,19 @@ public class EnemySpawner : MonoBehaviour
     // Spawn enemies
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        var enemyPrefab = GetRandomEnemyPrefab();
+
+        if (enemyPrefab != null)
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+    }
+
+    GameObject GetRandomEnemyPrefab()
+    {
+        var enemies = GameAssets.instance.enemyDatabase.enemies;
+        if (enemies == null || enemies.Count == 0)
+            return null;
+
+        int randomIndex = Random.Range(0, enemies.Count);
+        return enemies[randomIndex].gameObject;
     }
 }

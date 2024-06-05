@@ -4,6 +4,7 @@ public class CharacterStats : MonoBehaviour
 {
     // [Header("Level")]
     public int level = 1;
+    public new string name { get; private set; }
 
     [Header("Health")]
     public int maxHealth = 100;
@@ -24,6 +25,9 @@ public class CharacterStats : MonoBehaviour
         criticalHitMultiplier = 1.5f;
 
         healthBar.SetMaxValue(maxHealth);
+
+        if (string.IsNullOrEmpty(name))
+            name = gameObject.name;
     }
 
     public virtual void Heal(int amount)

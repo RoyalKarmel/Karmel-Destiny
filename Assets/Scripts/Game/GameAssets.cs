@@ -20,4 +20,6 @@ public class GameAssets : MonoBehaviour
 
     public Transform damagePopupPrefab;
     public GameObject itemButtonPrefab;
+
+    public EnemyDatabase enemyDatabase;
 }
