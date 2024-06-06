@@ -2,62 +2,72 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public bool isPlayerProjectile = false;
+    bool isPlayerProjectile = false;
+    float projectileRange;
+    float damage;
+    float criticalChance;
 
-    PlayerStats playerStats;
-    EnemyStats enemyStats;
-
+    CharacterStats characterStats;
     Vector2 startPosition;
 
     void Start()
     {
-        playerStats = PlayerManager.instance.playerStats;
         startPosition = transform.position;
+        characterStats = GetComponentInParent<CharacterStats>();
 
-        if (!isPlayerProjectile)
-            enemyStats = GetComponentInParent<EnemyStats>();
+        isPlayerProjectile = transform.parent.CompareTag("Player");
+        InitializeStats();
     }
 
     void Update()
     {
-        if (isPlayerProjectile)
+        if (Vector2.Distance(startPosition, transform.position) > projectileRange)
+            Destroy(gameObject);
+    }
+
+    void InitializeStats()
+    {
+        if (characterStats != null)
         {
-            if (Vector2.Distance(startPosition, transform.position) > playerStats.projectileRange)
-                Destroy(gameObject);
-        }
-        else
-        {
-            if (Vector2.Distance(startPosition, transform.position) > enemyStats.projectileRange)
-                Destroy(gameObject);
+            projectileRange = characterStats.projectileRange;
+            damage = characterStats.damage.GetValue();
+            criticalChance = characterStats.criticalChance;
         }
     }
 
+    #region Collision
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // If player procetile
-        if (isPlayerProjectile && collision.CompareTag("Enemy"))
-        {
-            enemyStats = collision.GetComponent<EnemyStats>();
+        if (collision.CompareTag("Enemy") && isPlayerProjectile)
+            HandleCollisionWithEnemy(collision);
+        else if (collision.CompareTag("Player") && !isPlayerProjectile)
+            HandleCollisionWithPlayer(collision);
+    }
 
-            float randomValue = Random.value;
-            if (randomValue <= playerStats.criticalChance)
-                enemyStats.TakeDamage(playerStats.projectileDamage.GetValue(), true);
-            else
-                enemyStats.TakeDamage(playerStats.projectileDamage.GetValue());
-
-            Destroy(gameObject);
-        }
-
-        // If enemy procetile
-        if (!isPlayerProjectile && collision.CompareTag("Player"))
+    void HandleCollisionWithEnemy(Collider2D collision)
+    {
+        EnemyStats enemy = collision.GetComponent<EnemyStats>();
+        if (enemy != null)
         {
             float randomValue = Random.value;
-            if (randomValue <= enemyStats.criticalChance)
-                playerStats.TakeDamage(enemyStats.damage.GetValue(), true);
-            else
-                playerStats.TakeDamage(enemyStats.damage.GetValue());
+            bool isCriticalHit = randomValue <= criticalChance;
+            enemy.TakeDamage(damage, isCriticalHit);
 
             Destroy(gameObject);
         }
     }
+
+    void HandleCollisionWithPlayer(Collider2D collision)
+    {
+        PlayerStats player = collision.GetComponent<PlayerStats>();
+        if (player != null)
+        {
+            float randomValue = Random.value;
+            bool isCriticalHit = randomValue <= criticalChance;
+            player.TakeDamage(damage, isCriticalHit);
+
+            Destroy(gameObject);
+        }
+    }
+    #endregion
 }
