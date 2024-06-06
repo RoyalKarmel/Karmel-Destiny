@@ -21,9 +21,9 @@ public class QuickSlot : MonoBehaviour
     {
         // Add / Remove item to/from quick slot
         if (itemSlot.transform.childCount > 0)
-            AddItemToQuickSlot();
+            itemButton = itemSlot.GetComponentInChildren<ItemButton>();
         else
-            RemoveItemFromQuickSlot();
+            itemButton = null;
 
         // Use Quick Slot Item
         if (Input.GetKeyDown(keyCodeInput))
@@ -34,16 +34,6 @@ public class QuickSlot : MonoBehaviour
     {
         if (itemButton != null)
             itemButton.UseItem();
-    }
-
-    void AddItemToQuickSlot()
-    {
-        itemButton = itemSlot.GetComponentInChildren<ItemButton>();
-    }
-
-    void RemoveItemFromQuickSlot()
-    {
-        itemButton = null;
     }
 
     void GetKeyCodeFromInput()
