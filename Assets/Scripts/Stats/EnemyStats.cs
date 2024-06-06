@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats : CharacterStats
 {
-    [Header("Combat Type")]
-    public CombatType combatType;
+    [Header("Enemy Type")]
+    public EnemyType enemyType;
 
     [Header("Damage Popup")]
     public Transform damagePopup;
@@ -27,9 +27,6 @@ public class EnemyStats : CharacterStats
     public override void TakeDamage(float damage, bool isCriticalHit = false)
     {
         base.TakeDamage(damage, isCriticalHit);
-
-        if (isCriticalHit)
-            damage *= criticalHitMultiplier;
 
         DamagePopup.Create(damagePopup.position, damage, isCriticalHit);
     }
@@ -55,8 +52,9 @@ public class EnemyStats : CharacterStats
     }
 }
 
-public enum CombatType
+public enum EnemyType
 {
     Melee,
-    Range
+    Range,
+    Necromancer
 }

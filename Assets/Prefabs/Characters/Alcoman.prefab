@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 9214070147984272160}
   m_Layer: 6
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 4663035498153295343}
   - component: {fileID: 4897797101729621318}
   - component: {fileID: 738220662094822999}
+  - component: {fileID: 7654992407714252693}
   m_Layer: 6
   m_Name: Alcoman
   m_TagString: Enemy
@@ -417,13 +418,11 @@ MonoBehaviour:
   damage:
     baseValue: 20
   meleeRange: 1.5
-  projectileRange:
-    baseValue: 0
-  projectileSpeed:
-    baseValue: 0
+  projectileRange: 0
+  projectileSpeed: 0
   criticalHitMultiplier: 1.5
   criticalChance: 0.1
-  combatType: 0
+  enemyType: 0
   damagePopup: {fileID: 6892843112770427645}
   minExp: 10
   maxExp: 30
@@ -489,7 +488,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
+  isAttacking: 0
   enemyStats: {fileID: 1501740918884077668}
+--- !u!114 &7654992407714252693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568825199632468015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0e9ec305382384984d9acc844fcad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6718463463367348364
 GameObject:
   m_ObjectHideFlags: 0

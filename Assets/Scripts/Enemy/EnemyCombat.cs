@@ -4,82 +4,79 @@ public class EnemyCombat : MonoBehaviour
 {
     public float attackCooldown = 1f;
     float timeSinceLastAttack = 0;
-    bool isAttacking = false;
 
-    Transform player;
-    PlayerStats playerStats;
+    [HideInInspector]
+    public bool isAttacking;
 
-    [SerializeField]
-    EnemyStats enemyStats;
+    public EnemyStats enemyStats;
+    public Transform player { get; private set; }
+
+    EnemyAttack enemyAttack;
 
     void Start()
     {
+        isAttacking = false;
+
         player = PlayerManager.instance.player.transform;
-        playerStats = PlayerManager.instance.playerStats;
+        enemyAttack = GetComponent<EnemyAttack>();
+        enemyAttack.Initialize(this, PlayerManager.instance.playerStats);
     }
 
     void Update()
     {
         if (isAttacking)
-        {
-            timeSinceLastAttack += Time.deltaTime;
-            if (timeSinceLastAttack >= attackCooldown)
-            {
-                isAttacking = false;
-                timeSinceLastAttack = 0;
-            }
-        }
+            HandleAttackCooldown();
         else
+            HandleCombat();
+    }
+
+    #region Handlers
+
+    void HandleAttackCooldown()
+    {
+        timeSinceLastAttack += Time.deltaTime;
+        if (timeSinceLastAttack >= attackCooldown)
         {
-            if (enemyStats.combatType == CombatType.Melee)
-            {
-                if (Vector3.Distance(transform.position, player.position) <= enemyStats.meleeRange)
-                    MeleeAttack();
-            }
-            else
-            {
-                if (
-                    Vector3.Distance(transform.position, player.position)
-                    <= enemyStats.projectileRange
-                )
-                    RangeAttack();
-            }
+            isAttacking = false;
+            timeSinceLastAttack = 0;
         }
     }
 
-    #region Combat
-    void MeleeAttack()
+    void HandleCombat()
     {
-        if (!isAttacking)
+        switch (enemyStats.enemyType)
         {
-            float randomValue = Random.value;
-            if (randomValue <= enemyStats.criticalChance)
-                playerStats.TakeDamage(enemyStats.damage.GetValue(), true);
-            else
-                playerStats.TakeDamage(enemyStats.damage.GetValue());
-
-            isAttacking = true;
+            case EnemyType.Melee:
+                HandleMeleeCombat();
+                break;
+            case EnemyType.Range:
+                HandleRangeCombat();
+                break;
+            case EnemyType.Necromancer:
+                HandleNecromancerCombat();
+                break;
         }
     }
 
-    void RangeAttack()
+    // Handle Melee combat
+    void HandleMeleeCombat()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        if (Vector3.Distance(transform.position, player.position) <= enemyStats.meleeRange)
+            enemyAttack.MeleeAttack();
+    }
 
-        GameObject projectile = Instantiate(
-            GameAssets.instance.enemyProjectile,
-            transform.position,
-            Quaternion.identity
-        );
-        projectile.transform.SetParent(transform);
+    // Handle Range combat
+    void HandleRangeCombat()
+    {
+        if (Vector3.Distance(transform.position, player.position) <= enemyStats.projectileRange)
+            enemyAttack.RangeAttack();
+    }
 
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * enemyStats.projectileSpeed;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        isAttacking = true;
+    // Handle Necromancer combat
+    void HandleNecromancerCombat()
+    {
+        if (Vector3.Distance(transform.position, player.position) <= enemyStats.projectileRange)
+            enemyAttack.SummonEnemies();
     }
 
     #endregion
@@ -93,6 +90,6 @@ public class EnemyCombat : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange);
         // Gizmos on range attack
         else if (enemyStats.projectileRange > 0)
-            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange);
+            Gizmos.DrawWireSphere(transform.position, enemyStats.projectileRange);
     }
 }

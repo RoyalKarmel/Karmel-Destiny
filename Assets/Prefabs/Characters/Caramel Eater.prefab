@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 2144430788756908902}
   m_Layer: 6
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 3683387358172037245}
   - component: {fileID: 5756399027634541823}
   - component: {fileID: 8680963752436522064}
+  - component: {fileID: 8984391940526735648}
   m_Layer: 6
   m_Name: Caramel Eater
   m_TagString: Enemy
@@ -551,11 +552,11 @@ MonoBehaviour:
   damage:
     baseValue: 20
   meleeRange: 0
-  projectileRange: 10
+  projectileRange: 8
   projectileSpeed: 10
   criticalHitMultiplier: 1.5
   criticalChance: 0.1
-  combatType: 1
+  enemyType: 1
   damagePopup: {fileID: 1651731463010209740}
   minExp: 10
   maxExp: 30
@@ -621,7 +622,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
+  isAttacking: 0
   enemyStats: {fileID: 600441708992006843}
+--- !u!114 &8984391940526735648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805325564072943325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0e9ec305382384984d9acc844fcad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8845554469192148415
 GameObject:
   m_ObjectHideFlags: 0
