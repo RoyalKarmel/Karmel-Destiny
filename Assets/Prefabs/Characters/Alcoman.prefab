@@ -423,6 +423,7 @@ MonoBehaviour:
   criticalHitMultiplier: 1.5
   criticalChance: 0.1
   enemyType: 0
+  canClone: 0
   damagePopup: {fileID: 6892843112770427645}
   minExp: 10
   maxExp: 30
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
+  cloneTimer: 0
   isAttacking: 0
   enemyStats: {fileID: 1501740918884077668}
 --- !u!114 &7654992407714252693

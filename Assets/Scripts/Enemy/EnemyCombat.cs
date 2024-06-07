@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    [Header("Attack Settings")]
     public float attackCooldown = 1f;
     float timeSinceLastAttack = 0;
+    public float attackRange { get; private set; }
 
     [HideInInspector]
-    public bool isAttacking;
+    public bool isAttacking = false;
+
+    [HideInInspector]
+    public float cloneTimer = 0f;
 
     public EnemyStats enemyStats;
     public Transform player { get; private set; }
@@ -15,11 +20,14 @@ public class EnemyCombat : MonoBehaviour
 
     void Start()
     {
-        isAttacking = false;
+        if (enemyStats.enemyType == EnemyType.Melee)
+            attackRange = enemyStats.meleeRange;
+        else
+            attackRange = enemyStats.projectileRange;
 
         player = PlayerManager.instance.player.transform;
         enemyAttack = GetComponent<EnemyAttack>();
-        enemyAttack.Initialize(this, PlayerManager.instance.playerStats);
+        enemyAttack.Initialize(this, PlayerManager.instance.playerStats, player);
     }
 
     void Update()
@@ -27,7 +35,7 @@ public class EnemyCombat : MonoBehaviour
         if (isAttacking)
             HandleAttackCooldown();
         else
-            HandleCombat();
+            enemyAttack.Attack();
     }
 
     #region Handlers
@@ -40,43 +48,6 @@ public class EnemyCombat : MonoBehaviour
             isAttacking = false;
             timeSinceLastAttack = 0;
         }
-    }
-
-    void HandleCombat()
-    {
-        switch (enemyStats.enemyType)
-        {
-            case EnemyType.Melee:
-                HandleMeleeCombat();
-                break;
-            case EnemyType.Range:
-                HandleRangeCombat();
-                break;
-            case EnemyType.Necromancer:
-                HandleNecromancerCombat();
-                break;
-        }
-    }
-
-    // Handle Melee combat
-    void HandleMeleeCombat()
-    {
-        if (Vector3.Distance(transform.position, player.position) <= enemyStats.meleeRange)
-            enemyAttack.MeleeAttack();
-    }
-
-    // Handle Range combat
-    void HandleRangeCombat()
-    {
-        if (Vector3.Distance(transform.position, player.position) <= enemyStats.projectileRange)
-            enemyAttack.RangeAttack();
-    }
-
-    // Handle Necromancer combat
-    void HandleNecromancerCombat()
-    {
-        if (Vector3.Distance(transform.position, player.position) <= enemyStats.projectileRange)
-            enemyAttack.SummonEnemies();
     }
 
     #endregion

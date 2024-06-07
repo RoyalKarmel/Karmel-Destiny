@@ -3,19 +3,53 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    public GameObject clonePrefab;
     PlayerStats playerStats;
+    Transform player;
     EnemyCombat enemyCombat;
     EnemyStats enemyStats;
 
-    public void Initialize(EnemyCombat combat, PlayerStats playerStats)
+    public void Initialize(EnemyCombat combat, PlayerStats playerStats, Transform player)
     {
         this.enemyCombat = combat;
         this.playerStats = playerStats;
         this.enemyStats = combat.enemyStats;
+        this.player = player;
+    }
+
+    public void Attack()
+    {
+        if (Vector3.Distance(transform.position, player.position) <= enemyCombat.attackRange)
+        {
+            switch (enemyStats.enemyType)
+            {
+                case EnemyType.Melee:
+                    MeleeAttack();
+                    break;
+
+                case EnemyType.Range:
+                    RangeAttack();
+                    break;
+
+                case EnemyType.Necromancer:
+                    SummonEnemies();
+                    break;
+            }
+        }
+
+        if (enemyStats.canClone)
+        {
+            enemyCombat.cloneTimer += Time.deltaTime;
+            if (enemyCombat.cloneTimer >= enemyStats.cloneInterval)
+            {
+                Clone();
+                enemyCombat.cloneTimer = 0f;
+            }
+        }
     }
 
     #region Melee
-    public void MeleeAttack()
+    void MeleeAttack()
     {
         if (!enemyCombat.isAttacking)
         {
@@ -31,7 +65,7 @@ public class EnemyAttack : MonoBehaviour
     #endregion
 
     #region Range
-    public void RangeAttack()
+    void RangeAttack()
     {
         Vector3 direction = (enemyCombat.player.position - transform.position).normalized;
 
@@ -54,7 +88,7 @@ public class EnemyAttack : MonoBehaviour
 
 
     #region Necromancer
-    public void SummonEnemies()
+    void SummonEnemies()
     {
         if (!enemyCombat.isAttacking)
         {
@@ -88,5 +122,23 @@ public class EnemyAttack : MonoBehaviour
         int randomIndex = Random.Range(0, validEnemies.Count);
         return validEnemies[randomIndex];
     }
+    #endregion
+
+    #region Clone
+
+    void Clone()
+    {
+        if (clonePrefab != null)
+        {
+            GameObject clone = Instantiate(clonePrefab, transform.position, Quaternion.identity);
+            clone.transform.SetParent(transform);
+
+            EnemyStats cloneStats = clone.GetComponent<EnemyStats>();
+            cloneStats.canClone = false;
+
+            Destroy(clone, cloneStats.cloneLifetime);
+        }
+    }
+
     #endregion
 }
