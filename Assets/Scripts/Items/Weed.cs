@@ -22,11 +22,11 @@ public class Weed : Item
     IEnumerator ApplySpeedModifier()
     {
         playerStats.speed.AddModifier(bonusSpeed);
-        playerStats.statsManager.SetSpeedText(playerStats.speed.GetValue());
+        StatsManager.instance.SetSpeedText(playerStats.speed.GetValue());
 
         yield return new WaitForSeconds(duration);
 
         playerStats.speed.RemoveModifier(bonusSpeed);
-        playerStats.statsManager.SetSpeedText(playerStats.speed.GetValue());
+        StatsManager.instance.SetSpeedText(playerStats.speed.GetValue());
     }
 }

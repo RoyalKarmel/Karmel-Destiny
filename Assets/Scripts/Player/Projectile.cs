@@ -8,12 +8,14 @@ public class Projectile : MonoBehaviour
     float criticalChance;
 
     CharacterStats characterStats;
+    PlayerStats player;
     Vector2 startPosition;
 
     void Start()
     {
         startPosition = transform.position;
         characterStats = GetComponentInParent<CharacterStats>();
+        player = PlayerManager.instance.playerStats;
 
         isPlayerProjectile = transform.parent.CompareTag("Player");
         InitializeStats();
@@ -53,13 +55,16 @@ public class Projectile : MonoBehaviour
             bool isCriticalHit = randomValue <= criticalChance;
             enemy.TakeDamage(damage, isCriticalHit);
 
+            // Decrease durability of equipped spell
+            if (player.currentEquipment.ContainsKey(EquipmentSlot.Armor))
+                player.currentEquipment[EquipmentSlot.Armor].DecreaseDurability();
+
             Destroy(gameObject);
         }
     }
 
     void HandleCollisionWithPlayer(Collider2D collision)
     {
-        PlayerStats player = collision.GetComponent<PlayerStats>();
         if (player != null)
         {
             float randomValue = Random.value;

@@ -74,7 +74,12 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             Equipment oldItem = currentEquipment[slotIndex];
-            inventory.Add(oldItem);
+
+            // Check if item is destroyed
+            if (oldItem.durability <= 0)
+                inventory.Remove(oldItem);
+            else
+                inventory.Add(oldItem);
 
             currentEquipment[slotIndex] = null;
             equipmentSlots[slotIndex].RemoveEquipment();

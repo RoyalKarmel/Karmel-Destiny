@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : CharacterStats
@@ -5,12 +6,16 @@ public class PlayerStats : CharacterStats
     [Header("Range Attack")]
     public Stat projectileDamage;
 
+    // Level
     public int exp { get; private set; } = 0;
     private int expToLevelUp = 100;
-
     private int healthIncrease = 20;
 
-    public StatsManager statsManager { get; private set; }
+    StatsManager statsManager;
+
+    // Current equipment
+    public Dictionary<EquipmentSlot, Equipment> currentEquipment =
+        new Dictionary<EquipmentSlot, Equipment>();
 
     void Start()
     {
@@ -56,10 +61,8 @@ public class PlayerStats : CharacterStats
     {
         if (newItem != null)
         {
-            damage.AddModifier(newItem.damageModifier);
-            maxHealth.AddModifier(newItem.healthModifier);
-            projectileDamage.AddModifier(newItem.projectileDamageModifier);
-            speed.AddModifier(newItem.speedModifier);
+            currentEquipment[newItem.equipSlot] = newItem;
+            AddEquipmentModifiers(newItem);
 
             healthBar.SetMaxValue(maxHealth.GetValue());
             healthBar.SetValue(currentHealth);
@@ -68,10 +71,8 @@ public class PlayerStats : CharacterStats
 
         if (oldItem != null)
         {
-            damage.RemoveModifier(oldItem.damageModifier);
-            maxHealth.RemoveModifier(oldItem.healthModifier);
-            projectileDamage.RemoveModifier(oldItem.projectileDamageModifier);
-            speed.RemoveModifier(oldItem.speedModifier);
+            currentEquipment.Remove(oldItem.equipSlot);
+            RemoveEquipmentModifiers(oldItem);
 
             healthBar.SetMaxValue(maxHealth.GetValue());
             healthBar.SetValue(currentHealth);
@@ -90,10 +91,32 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(damage, isCriticalHit);
 
+        if (currentEquipment.ContainsKey(EquipmentSlot.Armor))
+            currentEquipment[EquipmentSlot.Armor].DecreaseDurability();
+
         statsManager.SetCurrentHealthText(currentHealth);
     }
 
-    #region Utils
+    #region Equipment Modifiers
+    void AddEquipmentModifiers(Equipment newItem)
+    {
+        damage.AddModifier(newItem.damageModifier);
+        maxHealth.AddModifier(newItem.healthModifier);
+        projectileDamage.AddModifier(newItem.projectileDamageModifier);
+        speed.AddModifier(newItem.speedModifier);
+    }
+
+    void RemoveEquipmentModifiers(Equipment oldItem)
+    {
+        damage.RemoveModifier(oldItem.damageModifier);
+        maxHealth.RemoveModifier(oldItem.healthModifier);
+        projectileDamage.RemoveModifier(oldItem.projectileDamageModifier);
+        speed.RemoveModifier(oldItem.speedModifier);
+    }
+
+    #endregion
+
+    #region UI
     void SetUI()
     {
         healthBar.SetMaxValue(maxHealth.GetValue());
@@ -113,5 +136,6 @@ public class PlayerStats : CharacterStats
         statsManager.SetCurrentHealthText(currentHealth);
         statsManager.SetSpeedText(speed.GetValue());
     }
+
     #endregion
 }

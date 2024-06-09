@@ -22,7 +22,8 @@ MonoBehaviour:
   product:
     price: 50
   equipSlot: 1
-  armorModifier: 0
+  healthModifier: 0
   damageModifier: 4
   projectileDamageModifier: 0
   speedModifier: 0
+  durability: 25

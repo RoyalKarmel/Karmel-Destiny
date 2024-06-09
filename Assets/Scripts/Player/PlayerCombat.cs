@@ -48,6 +48,10 @@ public class PlayerCombat : MonoBehaviour
                 enemyStats.TakeDamage(playerStats.damage.GetValue(), true);
             else
                 enemyStats.TakeDamage(playerStats.damage.GetValue());
+
+            // Decrease durability of equipped weapon
+            if (playerStats.currentEquipment.ContainsKey(EquipmentSlot.Weapon))
+                playerStats.currentEquipment[EquipmentSlot.Weapon].DecreaseDurability();
         }
     }
 

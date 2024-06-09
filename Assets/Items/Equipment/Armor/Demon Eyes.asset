@@ -26,3 +26,5 @@ MonoBehaviour:
   damageModifier: 0
   projectileDamageModifier: 0
   speedModifier: 1
+  maxDurability: 25
+  currentDurability: 0
