@@ -9,7 +9,7 @@ public class ResourceBars : MonoBehaviour
     public Image fill;
     public TMP_Text resourceText;
 
-    public void SetMaxValue(int maxAmount)
+    public void SetMaxValue(float maxAmount)
     {
         slider.maxValue = maxAmount;
         slider.value = maxAmount;
@@ -20,7 +20,7 @@ public class ResourceBars : MonoBehaviour
             resourceText.text = maxAmount.ToString();
     }
 
-    public void SetValue(int amount)
+    public void SetValue(float amount)
     {
         slider.value = amount;
 

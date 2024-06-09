@@ -5,7 +5,7 @@ public class Equipment : Item
 {
     [Header("Equipment")]
     public EquipmentSlot equipSlot;
-    public int armorModifier;
+    public int healthModifier;
     public int damageModifier;
     public int projectileDamageModifier;
     public int speedModifier;

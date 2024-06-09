@@ -6,11 +6,10 @@ public class CharacterStats : MonoBehaviour
     public int level = 1;
     public new string name { get; private set; }
 
-    [Header("Health & Armor")]
-    public int maxHealth = 100;
-    public int currentHealth { get; private set; }
+    [Header("Health")]
+    public Stat maxHealth;
+    public float currentHealth { get; private set; }
     public ResourceBars healthBar;
-    public Stat armor;
 
     [Header("Speed")]
     public Stat speed;
@@ -29,20 +28,20 @@ public class CharacterStats : MonoBehaviour
 
     void Awake()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.GetValue();
 
-        healthBar.SetMaxValue(maxHealth);
+        healthBar.SetMaxValue(maxHealth.GetValue());
 
         if (string.IsNullOrEmpty(name))
             name = gameObject.name;
     }
 
-    public virtual void Heal(int amount)
+    public virtual void Heal(float amount)
     {
         currentHealth += amount;
 
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
+        if (currentHealth > maxHealth.GetValue())
+            currentHealth = maxHealth.GetValue();
 
         healthBar.SetValue(currentHealth);
     }
@@ -51,9 +50,6 @@ public class CharacterStats : MonoBehaviour
     {
         if (isCriticalHit)
             damage *= criticalHitMultiplier;
-
-        damage -= armor.GetValue();
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= (int)damage;
         healthBar.SetValue(currentHealth);

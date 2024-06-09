@@ -294,10 +294,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  maxHealth: 50
+  maxHealth:
+    baseValue: 50
   healthBar: {fileID: 7983332241229429269}
-  armor:
-    baseValue: 0
   speed:
     baseValue: 3
   damage:
@@ -310,6 +309,8 @@ MonoBehaviour:
   enemyType: 2
   canClone: 0
   damagePopup: {fileID: 3609573855313927220}
+  cloneInterval: 5
+  cloneLifetime: 15
   minExp: 10
   maxExp: 30
   minMoney: 10
@@ -327,8 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  cloneTimer: 0
   isAttacking: 0
+  cloneTimer: 0
   enemyStats: {fileID: 6626096901096738330}
 --- !u!114 &1483446867534630797
 MonoBehaviour:
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0e9ec305382384984d9acc844fcad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clonePrefab: {fileID: 0}
 --- !u!114 &3212366620293953204
 MonoBehaviour:
   m_ObjectHideFlags: 0

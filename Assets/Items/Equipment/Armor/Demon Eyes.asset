@@ -16,11 +16,13 @@ MonoBehaviour:
   name: Demon Eyes
   icon: {fileID: 1376598115, guid: 1766cd46e03de204eac7603213039788, type: 3}
   isSpecialItem: 0
+  rarity: 0
   type: 1
   quantity: 1
   product:
     price: 50
   equipSlot: 0
-  armorModifier: 3
+  healthModifier: 20
   damageModifier: 0
+  projectileDamageModifier: 0
   speedModifier: 1

@@ -5,7 +5,7 @@ public class PlayerStats : CharacterStats
     [Header("Range Attack")]
     public Stat projectileDamage;
 
-    public int exp { get; private set; }
+    public int exp { get; private set; } = 0;
     private int expToLevelUp = 100;
 
     private int healthIncrease = 20;
@@ -16,8 +16,6 @@ public class PlayerStats : CharacterStats
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
         statsManager = StatsManager.instance;
-
-        exp = 0;
 
         SetUI();
     }
@@ -49,8 +47,8 @@ public class PlayerStats : CharacterStats
 
     void IncreaseStats()
     {
-        maxHealth += healthIncrease;
-        Heal(maxHealth);
+        maxHealth.AddModifier(healthIncrease);
+        Heal(maxHealth.GetValue());
     }
     #endregion
 
@@ -59,25 +57,29 @@ public class PlayerStats : CharacterStats
         if (newItem != null)
         {
             damage.AddModifier(newItem.damageModifier);
+            maxHealth.AddModifier(newItem.healthModifier);
             projectileDamage.AddModifier(newItem.projectileDamageModifier);
-            armor.AddModifier(newItem.armorModifier);
             speed.AddModifier(newItem.speedModifier);
 
+            healthBar.SetMaxValue(maxHealth.GetValue());
+            healthBar.SetValue(currentHealth);
             SetEquipmentStatsUI();
         }
 
         if (oldItem != null)
         {
             damage.RemoveModifier(oldItem.damageModifier);
+            maxHealth.RemoveModifier(oldItem.healthModifier);
             projectileDamage.RemoveModifier(oldItem.projectileDamageModifier);
-            armor.RemoveModifier(oldItem.armorModifier);
             speed.RemoveModifier(oldItem.speedModifier);
 
+            healthBar.SetMaxValue(maxHealth.GetValue());
+            healthBar.SetValue(currentHealth);
             SetEquipmentStatsUI();
         }
     }
 
-    public override void Heal(int amount)
+    public override void Heal(float amount)
     {
         base.Heal(amount);
 
@@ -94,13 +96,11 @@ public class PlayerStats : CharacterStats
     #region Utils
     void SetUI()
     {
-        healthBar.SetMaxValue(maxHealth);
+        healthBar.SetMaxValue(maxHealth.GetValue());
 
         statsManager.SetLevelText(level);
         statsManager.SetExpText(exp);
         statsManager.SetExpToLevelUpText(expToLevelUp);
-
-        statsManager.SetMaxHealthText(maxHealth);
 
         SetEquipmentStatsUI();
     }
@@ -109,7 +109,8 @@ public class PlayerStats : CharacterStats
     {
         statsManager.SetMeleeDamageText(damage.GetValue());
         statsManager.SetRangeDamageText(projectileDamage.GetValue());
-        statsManager.SetArmorText(armor.GetValue());
+        statsManager.SetMaxHealthText(maxHealth.GetValue());
+        statsManager.SetCurrentHealthText(currentHealth);
         statsManager.SetSpeedText(speed.GetValue());
     }
     #endregion

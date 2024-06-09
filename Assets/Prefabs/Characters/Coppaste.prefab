@@ -228,10 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  maxHealth: 50
+  maxHealth:
+    baseValue: 50
   healthBar: {fileID: 1868821701724032718}
-  armor:
-    baseValue: 0
   speed:
     baseValue: 3
   damage:

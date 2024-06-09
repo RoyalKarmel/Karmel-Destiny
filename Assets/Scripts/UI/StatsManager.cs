@@ -31,7 +31,6 @@ public class StatsManager : MonoBehaviour
     public TMP_Text maxHealthText;
     public TMP_Text meleeDamageText;
     public TMP_Text rangeDamageText;
-    public TMP_Text armorText;
     public TMP_Text speedText;
 
     #region Level Text
@@ -53,12 +52,12 @@ public class StatsManager : MonoBehaviour
 
     #region Stats Text
     // HP
-    public void SetCurrentHealthText(int currentHealth)
+    public void SetCurrentHealthText(float currentHealth)
     {
         SetText(currentHealthText, currentHealth);
     }
 
-    public void SetMaxHealthText(int maxHealth)
+    public void SetMaxHealthText(float maxHealth)
     {
         SetText(maxHealthText, maxHealth);
         SetCurrentHealthText(maxHealth); // Update current health as well
@@ -73,12 +72,6 @@ public class StatsManager : MonoBehaviour
     public void SetRangeDamageText(float damage)
     {
         SetText(rangeDamageText, damage);
-    }
-
-    // Armor
-    public void SetArmorText(float armor)
-    {
-        SetText(armorText, armor);
     }
 
     // Speed
