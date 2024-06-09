@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public new string name = "New Item";
     public Sprite icon = null;
     public bool isSpecialItem = false;
+    public ItemRarity rarity;
     public ItemType type;
 
     [Header("Consumable")]
@@ -53,4 +54,13 @@ public enum ItemType
     Currency,
     Equipment,
     Consumable
+}
+
+// Item rarity
+public enum ItemRarity
+{
+    Common,
+    Rare,
+    Epic,
+    Legendary
 }

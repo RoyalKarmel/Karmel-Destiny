@@ -26,11 +26,15 @@ public class Salesman : Interactable
 
     void InitializeProducts()
     {
-        InitializeRandomProducts(products, Shop.instance.productsCount, GetRandomItem);
+        InitializeRandomProducts(
+            products,
+            Shop.instance.productsCount,
+            ItemDatabase.instance.GetRandomConsumable
+        );
         InitializeRandomProducts(
             specialProducts,
             Shop.instance.specialProductsCount,
-            GetRandomEquipment
+            ItemDatabase.instance.GetRandomEquipment
         );
 
         productsInitialized = true;
@@ -44,29 +48,6 @@ public class Salesman : Interactable
             items.Add(getRandomItem());
         }
     }
-
-    #region Random products
-    // Get random item from item list
-    Item GetRandomItem()
-    {
-        int index = Random.Range(0, ItemDatabase.instance.items.Count);
-        return ItemDatabase.instance.items[index];
-    }
-
-    // Get random equipment from both weapons and armor lists
-    Equipment GetRandomEquipment()
-    {
-        List<Equipment> combinedList = new List<Equipment>();
-
-        combinedList.AddRange(ItemDatabase.instance.weapons);
-        combinedList.AddRange(ItemDatabase.instance.armor);
-        combinedList.AddRange(ItemDatabase.instance.spells);
-        combinedList.AddRange(ItemDatabase.instance.amulets);
-
-        int index = Random.Range(0, combinedList.Count);
-        return combinedList[index];
-    }
-    #endregion
 
     #region Products UI
 

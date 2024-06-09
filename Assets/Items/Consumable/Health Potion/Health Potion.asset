@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Health Potion
   icon: {fileID: 437497370, guid: f8951d67b761be04cbc87a5a04b71e36, type: 3}
   isSpecialItem: 0
+  rarity: 0
   type: 2
   quantity: 0
   product:

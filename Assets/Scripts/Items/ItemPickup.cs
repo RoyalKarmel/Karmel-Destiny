@@ -4,6 +4,16 @@ public class ItemPickup : Interactable
 {
     public Item item;
     public int quantity = 1;
+    public new ParticleSystem particleSystem;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        Color rarityColor = ItemDatabase.instance.GetColorForRarity(item.rarity);
+        var main = particleSystem.main;
+        main.startColor = new ParticleSystem.MinMaxGradient(rarityColor);
+    }
 
     public override void Interact()
     {

@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 
     Transform player;
 
-    void Start()
+    protected virtual void Start()
     {
         player = PlayerManager.instance.player.transform;
     }

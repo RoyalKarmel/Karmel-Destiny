@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Sigma Bucket
   icon: {fileID: -2071434060, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
   isSpecialItem: 0
+  rarity: 2
   type: 2
   quantity: 1
   product:

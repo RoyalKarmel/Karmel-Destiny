@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   item: {fileID: 11400000, guid: 74c933355b611b3459e43961f4d2107d, type: 2}
-  quantity: 1
+  quantity: 5
+  particleSystem: {fileID: 7117731840154923135}
 --- !u!199 &6158434541452851439
 ParticleSystemRenderer:
   serializedVersion: 6

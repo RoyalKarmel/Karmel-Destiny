@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Pipe
   icon: {fileID: -670628102, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
   isSpecialItem: 0
+  rarity: 1
   type: 2
   quantity: 1
   product:

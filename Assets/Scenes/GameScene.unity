@@ -10939,6 +10939,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e545c23473f232545976dea41c90af66, type: 2}
   spells: []
   amulets: []
+  itemsRarity:
+  - rarity: 0
+    chance: 0.5
+    particleColor: {r: 0.12583704, g: 0.9433962, b: 0.09344962, a: 1}
+  - rarity: 1
+    chance: 0.25
+    particleColor: {r: 0.038047332, g: 0.56617427, b: 0.8962264, a: 1}
+  - rarity: 2
+    chance: 0.15
+    particleColor: {r: 0.7400066, g: 0.082013145, b: 0.9150943, a: 1}
+  - rarity: 3
+    chance: 0.05
+    particleColor: {r: 0.9245283, g: 0.5729745, b: 0.09158063, a: 1}
 --- !u!1001 &1383560914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20748,10 +20761,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 878545579264876170, guid: d6579c6210e9a864b82aa5b185b2b70f, type: 3}
-      propertyPath: quantity
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6780822974170475295, guid: d6579c6210e9a864b82aa5b185b2b70f, type: 3}
       propertyPath: m_Name
       value: Health Potion
@@ -21378,10 +21387,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1906810049}
     m_Modifications:
-    - target: {fileID: 2461635745058811954, guid: 7a0d4a87702d87246b4c5bc0e33976d2, type: 3}
-      propertyPath: quantity
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6235896993682753418, guid: 7a0d4a87702d87246b4c5bc0e33976d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.309999
@@ -21444,10 +21449,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1906810049}
     m_Modifications:
-    - target: {fileID: 3406411177445660753, guid: ab044faabdc2b864bba110e55154017b, type: 3}
-      propertyPath: quantity
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3580175425522682712, guid: ab044faabdc2b864bba110e55154017b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.12
@@ -21553,10 +21554,6 @@ PrefabInstance:
     - target: {fileID: 5274001887366263333, guid: 2bd4059e0288b694db4d8c655907170d, type: 3}
       propertyPath: m_Name
       value: Currency
-      objectReference: {fileID: 0}
-    - target: {fileID: 8253492174113754770, guid: 2bd4059e0288b694db4d8c655907170d, type: 3}
-      propertyPath: quantity
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

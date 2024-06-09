@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Deity Pickaxe
   icon: {fileID: 1491723472, guid: 7dcd516e4d085544ca0dcd724ac951ca, type: 3}
   isSpecialItem: 0
+  rarity: 3
   type: 1
   quantity: 1
   product:
@@ -23,4 +24,5 @@ MonoBehaviour:
   equipSlot: 1
   armorModifier: 0
   damageModifier: 4
+  projectileDamageModifier: 0
   speedModifier: 0

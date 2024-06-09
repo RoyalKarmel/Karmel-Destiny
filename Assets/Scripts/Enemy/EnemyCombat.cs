@@ -56,11 +56,6 @@ public class EnemyCombat : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        // Gizmos on melee
-        if (enemyStats.meleeRange > 0)
-            Gizmos.DrawWireSphere(transform.position, enemyStats.meleeRange);
-        // Gizmos on range attack
-        else if (enemyStats.projectileRange > 0)
-            Gizmos.DrawWireSphere(transform.position, enemyStats.projectileRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Alcoaxe
   icon: {fileID: -835561385, guid: 7dcd516e4d085544ca0dcd724ac951ca, type: 3}
   isSpecialItem: 0
+  rarity: 2
   type: 1
   quantity: 1
   product:
@@ -23,4 +24,5 @@ MonoBehaviour:
   equipSlot: 1
   armorModifier: 0
   damageModifier: 5
+  projectileDamageModifier: 0
   speedModifier: 0
