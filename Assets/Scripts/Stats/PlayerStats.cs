@@ -10,6 +10,7 @@ public class PlayerStats : CharacterStats
     public int exp { get; private set; } = 0;
     private int expToLevelUp = 100;
     private int healthIncrease = 20;
+    private int damageIncrease = 5;
 
     StatsManager statsManager;
 
@@ -52,6 +53,7 @@ public class PlayerStats : CharacterStats
 
     void IncreaseStats()
     {
+        damage.AddModifier(damageIncrease);
         maxHealth.AddModifier(healthIncrease);
         Heal(maxHealth.GetValue());
     }
