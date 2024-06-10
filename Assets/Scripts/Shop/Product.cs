@@ -9,13 +9,17 @@ public class Product
     // Buy item
     public void Purchase(Item itemToPurchase)
     {
+        if (isPurchased)
+            return;
+
         if (Currency.instance.money < price)
         {
             Debug.Log("Not enought money!");
             return;
         }
 
-        isPurchased = true;
+        if (itemToPurchase is Equipment)
+            isPurchased = true;
 
         Inventory.instance.Add(itemToPurchase);
         Currency.instance.DecreaseCurrency(price);
