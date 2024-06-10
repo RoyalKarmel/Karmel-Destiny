@@ -14,6 +14,10 @@ public class CharacterStats : MonoBehaviour
     [Header("Speed")]
     public Stat speed;
 
+    [Header("Combat Modifiers")]
+    public float criticalHitMultiplier = 1.5f;
+    public float criticalChance = 0.1f;
+
     [Header("Melee Combat")]
     public Stat damage;
     public float meleeRange;
@@ -21,10 +25,6 @@ public class CharacterStats : MonoBehaviour
     [Header("Range Combat")]
     public float projectileRange;
     public float projectileSpeed;
-
-    [Header("Combat Modifiers")]
-    public float criticalHitMultiplier = 1.5f;
-    public float criticalChance = 0.1f;
 
     void Awake()
     {

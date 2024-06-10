@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public GameObject clonePrefab;
     PlayerStats playerStats;
     Transform player;
     EnemyCombat enemyCombat;
     EnemyStats enemyStats;
+    CloneStats cloneStats;
 
     public void Initialize(EnemyCombat combat, PlayerStats playerStats, Transform player)
     {
@@ -15,6 +15,7 @@ public class EnemyAttack : MonoBehaviour
         this.playerStats = playerStats;
         this.enemyStats = combat.enemyStats;
         this.player = player;
+        this.cloneStats = GetComponent<CloneStats>();
     }
 
     public void Attack()
@@ -37,13 +38,16 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        if (enemyStats.canClone)
+        if (cloneStats != null)
         {
-            enemyCombat.cloneTimer += Time.deltaTime;
-            if (enemyCombat.cloneTimer >= enemyStats.cloneInterval)
+            if (cloneStats.canClone)
             {
-                Clone();
-                enemyCombat.cloneTimer = 0f;
+                cloneStats.cloneTimer += Time.deltaTime;
+                if (cloneStats.cloneTimer >= cloneStats.cloneInterval)
+                {
+                    cloneStats.Clone();
+                    cloneStats.cloneTimer = 0f;
+                }
             }
         }
     }
@@ -122,23 +126,5 @@ public class EnemyAttack : MonoBehaviour
         int randomIndex = Random.Range(0, validEnemies.Count);
         return validEnemies[randomIndex];
     }
-    #endregion
-
-    #region Clone
-
-    void Clone()
-    {
-        if (clonePrefab != null)
-        {
-            GameObject clone = Instantiate(clonePrefab, transform.position, Quaternion.identity);
-            clone.transform.SetParent(transform);
-
-            EnemyStats cloneStats = clone.GetComponent<EnemyStats>();
-            cloneStats.canClone = false;
-
-            Destroy(clone, cloneStats.cloneLifetime);
-        }
-    }
-
     #endregion
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    [Header("Range Attack")]
+    [Header("Player Range Attack")]
     public Stat projectileDamage;
 
     // Level

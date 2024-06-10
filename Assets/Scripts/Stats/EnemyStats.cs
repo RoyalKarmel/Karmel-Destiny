@@ -5,14 +5,9 @@ public class EnemyStats : CharacterStats
 {
     [Header("Enemy Type")]
     public EnemyType enemyType;
-    public bool canClone = false;
 
     [Header("Damage Popup")]
     public Transform damagePopup;
-
-    [Header("Clone Settings")]
-    public float cloneInterval = 5f;
-    public float cloneLifetime = 15f;
 
     [Header("Loot")]
     public EnemyLoot loot;

@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 5386440850843321684}
   - component: {fileID: 2071098437193521375}
   - component: {fileID: 8834777034288694533}
+  - component: {fileID: 6728485669428520057}
   - component: {fileID: 176884686801519774}
   - component: {fileID: 6507544573927186862}
   - component: {fileID: 7024281762837585289}
@@ -233,22 +234,36 @@ MonoBehaviour:
   healthBar: {fileID: 1868821701724032718}
   speed:
     baseValue: 3
+  criticalHitMultiplier: 1.5
+  criticalChance: 0.1
   damage:
     baseValue: 20
   meleeRange: 1.5
   projectileRange: 0
   projectileSpeed: 0
-  criticalHitMultiplier: 1.5
-  criticalChance: 0.1
   enemyType: 0
-  canClone: 1
   damagePopup: {fileID: 1451420798299341041}
+  loot:
+    minExp: 10
+    maxExp: 30
+    minMoney: 10
+    maxMoney: 50
+--- !u!114 &6728485669428520057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708082302859225278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8567a551cde50646becb4d7cc64f87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clonePrefab: {fileID: 3501404603464911706, guid: 8ac15a534a036fa4aae19e37f07c5c86, type: 3}
+  canClone: 1
   cloneInterval: 5
-  cloneLifetime: 10
-  minExp: 10
-  maxExp: 30
-  minMoney: 10
-  maxMoney: 50
+  cloneLifetime: 15
 --- !u!114 &176884686801519774
 MonoBehaviour:
   m_ObjectHideFlags: 0

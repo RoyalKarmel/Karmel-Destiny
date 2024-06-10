@@ -10,9 +10,6 @@ public class EnemyCombat : MonoBehaviour
     [HideInInspector]
     public bool isAttacking = false;
 
-    [HideInInspector]
-    public float cloneTimer = 0f;
-
     public EnemyStats enemyStats;
     public Transform player { get; private set; }
 
