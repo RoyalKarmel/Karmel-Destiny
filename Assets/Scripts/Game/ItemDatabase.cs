@@ -100,26 +100,20 @@ public class ItemDatabase : MonoBehaviour
         if (itemList == null || itemList.Count == 0)
             return null;
 
-        float totalWeight = 0f;
-        Dictionary<ItemRarity, float> rarityWeights = new Dictionary<ItemRarity, float>();
+        T item = null;
 
-        foreach (var rarityChance in itemsRarity)
+        while (item == null)
         {
-            totalWeight += rarityChance.chance;
-            rarityWeights[rarityChance.rarity] = rarityChance.chance;
+            int index = Random.Range(0, itemList.Count);
+            var tempItem = itemList[index];
+
+            float randomValue = Random.value;
+
+            if (GetChanceForRarity(tempItem.rarity) <= randomValue)
+                item = tempItem;
         }
 
-        float randomValue = Random.value * totalWeight;
-        float cumulativeWeight = 0f;
-
-        foreach (var item in itemList)
-        {
-            cumulativeWeight += rarityWeights[item.rarity];
-            if (randomValue < cumulativeWeight)
-                return item;
-        }
-
-        return null;
+        return item;
     }
 
     // Get Color for item rarity
@@ -133,6 +127,17 @@ public class ItemDatabase : MonoBehaviour
             }
         }
         return Color.white;
+    }
+
+    // Get chance for item rarity
+    float GetChanceForRarity(ItemRarity rarity)
+    {
+        foreach (var rarityItem in itemsRarity)
+        {
+            if (rarityItem.rarity == rarity)
+                return rarityItem.chance;
+        }
+        return 0f;
     }
 
     #endregion
