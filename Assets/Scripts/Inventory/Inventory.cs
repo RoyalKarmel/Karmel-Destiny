@@ -30,39 +30,36 @@ public class Inventory : MonoBehaviour
         // Check if new item is currency
         if (newItem.type == ItemType.Currency)
         {
-            Currency.instance.AddCurrency(newItem.quantity);
+            Currency.instance.AddCurrency(newItem.consumable.quantity);
             return true;
         }
 
-        if (!newItem.isSpecialItem)
+        // If item is consumable, check if already exist in inventory and then increase quantity
+        if (newItem.type == ItemType.Consumable)
         {
-            // If item is consumable, check if already exist in inventory and then increase quantity
-            if (newItem.type == ItemType.Consumable)
+            Item existingItem = items.Find(item => item.name == newItem.name);
+            if (existingItem != null)
             {
-                Item existingItem = items.Find(item => item.name == newItem.name);
-                if (existingItem != null)
-                {
-                    // Increase existing item's quantity
-                    int newQuantity = newItem.quantity + existingItem.quantity;
-                    existingItem.IncreaseQuantity(newQuantity);
+                // Increase existing item's quantity
+                int newQuantity = newItem.consumable.quantity + existingItem.consumable.quantity;
+                existingItem.consumable.IncreaseQuantity(newQuantity);
 
-                    if (onItemChangedCallback != null)
-                        onItemChangedCallback.Invoke();
-                    return true;
-                }
+                if (onItemChangedCallback != null)
+                    onItemChangedCallback.Invoke();
+                return true;
             }
-
-            if (items.Count >= space)
-            {
-                Debug.Log("Not enough room");
-                return false;
-            }
-
-            items.Add(newItem);
-
-            if (onItemChangedCallback != null)
-                onItemChangedCallback.Invoke();
         }
+
+        if (items.Count >= space)
+        {
+            Debug.Log("Not enough room");
+            return false;
+        }
+
+        items.Add(newItem);
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
 
         return true;
     }

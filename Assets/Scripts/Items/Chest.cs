@@ -22,7 +22,7 @@ public class Chest : Interactable
 
             // Random item quantity
             if (item.type == ItemType.Consumable)
-                item.quantity = Random.Range(minQuantity, maxQuantity);
+                item.consumable.quantity = Random.Range(minQuantity, maxQuantity);
 
             // Play animation
             animator.SetTrigger("Open");

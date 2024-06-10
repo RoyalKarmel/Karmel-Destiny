@@ -8,10 +8,10 @@ public class Equipment : Item
     public int durability = 25;
 
     [Header("Modifiers")]
-    public int healthModifier;
-    public int damageModifier;
-    public int projectileDamageModifier;
-    public int speedModifier;
+    public float healthModifier;
+    public float damageModifier;
+    public float projectileDamageModifier;
+    public float speedModifier;
 
     public override void Use()
     {

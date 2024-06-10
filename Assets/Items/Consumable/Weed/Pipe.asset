@@ -15,10 +15,12 @@ MonoBehaviour:
   prefab: {fileID: 2925141425762873077, guid: 62a3a141dc6bd9b4189894e7e641cb6b, type: 3}
   name: Pipe
   icon: {fileID: -670628102, guid: 5ba0029eb764d324c8b75cce318165e7, type: 3}
-  isSpecialItem: 0
   rarity: 1
   type: 2
-  quantity: 1
+  consumable:
+    quantity: 1
+    consumableType: 2
+    item: {fileID: 11400000}
   product:
     price: 50
   bonusSpeed: 1

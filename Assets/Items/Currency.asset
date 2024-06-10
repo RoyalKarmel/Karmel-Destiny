@@ -16,7 +16,10 @@ MonoBehaviour:
   name: Currency
   icon: {fileID: 21300000, guid: 4d4bd505b42c7be488ab181ed2cab51e, type: 3}
   isSpecialItem: 0
+  rarity: 0
   type: 0
-  quantity: 10
+  consumable:
+    quantity: 1
+    item: {fileID: 11400000}
   product:
     price: 1

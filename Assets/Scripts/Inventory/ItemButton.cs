@@ -22,7 +22,7 @@ public class ItemButton : MonoBehaviour
         if (item.type == ItemType.Consumable)
         {
             quantityText.gameObject.SetActive(true);
-            quantityText.text = item.quantity.ToString();
+            quantityText.text = item.consumable.quantity.ToString();
         }
         else
             quantityText.gameObject.SetActive(false);
@@ -36,7 +36,7 @@ public class ItemButton : MonoBehaviour
             item.Use();
 
             // Remove slot when quantity is 0
-            if (item.quantity <= 0)
+            if (item.consumable.quantity <= 0)
                 RemoveItem();
 
             // Remove slot when equipt
@@ -45,7 +45,7 @@ public class ItemButton : MonoBehaviour
 
             // Update item quantity UI
             if (item != null)
-                quantityText.text = item.quantity.ToString();
+                quantityText.text = item.consumable.quantity.ToString();
         }
     }
 

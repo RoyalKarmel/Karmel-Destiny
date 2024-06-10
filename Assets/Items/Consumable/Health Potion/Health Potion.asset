@@ -15,10 +15,19 @@ MonoBehaviour:
   prefab: {fileID: 6780822974170475295, guid: d6579c6210e9a864b82aa5b185b2b70f, type: 3}
   name: Health Potion
   icon: {fileID: 437497370, guid: f8951d67b761be04cbc87a5a04b71e36, type: 3}
-  isSpecialItem: 0
   rarity: 0
   type: 2
-  quantity: 0
+  description:
+    healAmount: 0
+    speedBoost: 0
+    damageModifier: 0
+    healthModifier: 0
+    projectileDamageModifier: 0
+    speedModifier: 0
+  consumable:
+    quantity: 5
+    consumableType: 1
+    item: {fileID: 11400000}
   product:
     price: 50
   health: 50

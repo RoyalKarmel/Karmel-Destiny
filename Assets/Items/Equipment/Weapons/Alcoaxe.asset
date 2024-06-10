@@ -18,13 +18,14 @@ MonoBehaviour:
   isSpecialItem: 0
   rarity: 2
   type: 1
-  quantity: 1
+  consumable:
+    quantity: 1
+    item: {fileID: 0}
   product:
     price: 50
   equipSlot: 1
+  durability: 25
   healthModifier: 0
   damageModifier: 5
   projectileDamageModifier: 0
   speedModifier: 0
-  maxDurability: 25
-  currentDurability: 0

@@ -15,10 +15,12 @@ MonoBehaviour:
   prefab: {fileID: 4746833081320007783, guid: ab044faabdc2b864bba110e55154017b, type: 3}
   name: Big Health Potion
   icon: {fileID: -1304854596, guid: f8951d67b761be04cbc87a5a04b71e36, type: 3}
-  isSpecialItem: 0
   rarity: 1
   type: 2
-  quantity: 5
+  consumable:
+    quantity: 1
+    consumableType: 1
+    item: {fileID: 11400000}
   product:
     price: 50
   health: 100

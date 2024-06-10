@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weed : Item
 {
     [Header("Weed")]
-    public int bonusSpeed = 1;
+    public float bonusSpeed = 1;
     public float duration = 5f;
 
     PlayerStats playerStats;

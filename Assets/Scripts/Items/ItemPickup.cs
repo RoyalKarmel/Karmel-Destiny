@@ -19,7 +19,7 @@ public class ItemPickup : Interactable
     {
         base.Interact();
 
-        item.quantity = quantity;
+        item.consumable.quantity = quantity;
         PickUp();
     }
 
